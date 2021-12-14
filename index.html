@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="//upload.wikimedia.org/wikipedia/commons/2/21/Solid_black.svg" />
+
+    <title>Spotify Cover Generator</title>
+    <meta property="og:title" content="Spotify Cover Generator" />
+    <meta property="og:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.roc0ast3r.dev/spotify" />
+    <meta property="og:image" content="https://cdn.discordapp.com/attachments/454473144565104640/788494781755555890/20201215_101750.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://www.roc0ast3r.dev/spotify" />
+    <meta name="twitter:creator" content="@roc0ast3r" />
+    <meta name="twitter:title" content="Spotify Cover Generator" />
+    <meta name="twitter:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
+    <meta name="twitter:image" content="https://cdn.discordapp.com/attachments/454473144565104640/788494781755555890/20201215_101750.jpg" />
+
+    <link rel="stylesheet" href="/spotify/style.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.3.3/dist/html2canvas.min.js"></script>
+    <script src="/spotify/scripts/canvas2image.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <script src="/spotify/scripts/main.js" defer></script>
+  </head>
+  <body>
+    <div id="cover">
+      <img id="cover-img" />
+      <svg id="cover-logo" class="default auto"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewBox="0 0 215 215"
+      >
+        <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
+      </svg>
+      <span id="cover-text" class="top-right auto"></span>
+    </div>
+    
+    <div class="choices">
+      <span class="choice">Type</span>
+      <select name="type" id="d">
+        <option value="regular" selected>Regular</option>
+      </select>
+      
+      <span class="choice">Text</span>
+      <textarea id="text" rows="1" oninput="auto_grow(this)"></textarea>
+      
+      <span class="choice">Text Position</span>
+      <select name="position" id="position">
+        <option value="top-left">Top left</option>
+        <option value="top-right" selected>Top right</option>
+        <option value="bottom-left">Bottom left</option>
+        <option value="bottom-right">Bottom right</option>
+        <option value="center">Center</option>
+      </select>
+      
+      <span class="choice">Text Color</span>
+      <select name="textcolor" id="textColor">
+        <option value="auto" selected>Auto</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </select>
+      
+      <span class="choice">Logo Color</span>
+      <select name="logocolor" id="logoColor">
+        <option value="auto" selected>Auto</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </select>
+      
+      <span class="choice">Image</span>
+      <input type="file" id="fileUpload" name="img" accept="image/*" onchange="loadFile(event)" />
+      <br />
+      <button id="download" class="download">Download</button>
+      <div id="previewImage"></div>
+    </div>
+    
+    <div class="credit">
+      <a href="//youtube.com/roc0ast3r"><img src="/spotify/images/youtube.svg" /></a>
+      <a href="//twitter.com/roc0ast3r"><img src="/spotify/images/twitter.svg" /></a>
+      <a href="//instagr.am/roc0ast3r"><img src="/spotify/images/instagram.svg" /></a>
+      <a href="//github.com/5qc/spotify-cover"><img src="/spotify/images/github.svg" /></a>
+    </div>
+  </body>
+</html>
