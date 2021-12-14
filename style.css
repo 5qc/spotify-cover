@@ -19,6 +19,15 @@
 *:focus {
   outline: none;
 }
+.display-too-small {
+  display: none;
+}
+.display-too-small div {
+  color: salmon;
+  border-bottom: 1px solid #ccc;
+  width: 85%;
+  margin: auto;
+}
 
 body {
   background: #121212;
@@ -106,6 +115,12 @@ textarea:focus {
 #cover-logo.white {
   fill: white;
 }
+#cover-logo.none {
+  fill: transparent;
+}
+#cover-logo.transparent {
+  opacity: 50%;
+}
 #cover-logo.default {
   position: absolute;
   top: 9px;
@@ -122,6 +137,7 @@ textarea:focus {
   overflow-wrap: break-word;
   font-weight: bold;
   letter-spacing: 0.25px;
+  height: auto;
 }
 #cover-text.auto {
   mix-blend-mode: difference;
@@ -206,19 +222,7 @@ textarea:focus {
   vertical-align: middle;
 }
 
-@media screen and (max-width: 900px) {
-  #cover {
-    width: 300px;
-    height: 300px;
-  }
-  #cover-img {
-    width: 300px;
-    height: 300px;
-  }
-  #cover-text {
-    font-size: 250%;
-  }
-  
+@media screen and (max-width: 900px) {  
   .credit {
     position: fixed;
     bottom: 9px;
@@ -228,5 +232,16 @@ textarea:focus {
 @media screen and (max-width: 500px) {
   .credit {
     display: none !important;
+  }
+}
+@media screen and (max-width: 750px) {
+  #cover,
+  .choices,
+  .credit {
+    display: none;
+  }
+  
+  .display-too-small {
+    display: block !important;
   }
 }
