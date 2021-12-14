@@ -2,14 +2,26 @@
 $("a").attr("target", "_blank");
 
 // Auto-generate placeholder photos
-if (document.getElementById("fileUpload").files.length == 0) {
-  $("#cover-img").attr("src", "//picsum.photos/id/69/1000/1000");
+if (document.getElementById("image").val == undefined) {
+  $("#cover-img").attr("src", "//picsum.photos/id/420/1000/1000");
+}
+
+$("#image").keyup(function() {
+  var imageURL = $(this).val();
+  $("#cover-img")
+    .removeAttr("src")
+    .attr("src", imageURL);
+});
+
+function imgError(image) {
+  $("#cover-img").attr("src", "//picsum.photos/id/420/1000/1000");
   $("#cover").click(function() {
     var d = new Date();
     $("#cover-img")
       .removeAttr("src")
-      .attr("src", "//picsum.photos/600/600?" + d.getTime());
+      .attr("src", "//picsum.photos/id/420/1000/1000");
   });
+  return true;
 }
 
 // Load the file from input
@@ -131,14 +143,9 @@ $("#download").click(function() {
     useCORS: true,
     onrendered: function(canvas) {
       var context = canvas.getContext("2d");
-
-      if ($("#cover-img").attr("src") !== $('#coverimg[^="blob"]')) {
-        var img = new Image();
-        img.src = document.getElementById("cover-img").src;
-        img.onload = context.drawImage(img, 0, 0, 600, 600);
-      } else {
-        blob2canvas(canvas, $("#cover-img").attr("src"))
-      }
+      var img = new Image();
+      img.src = document.getElementById("cover-img").src;
+      img.onload = context.drawImage(img, 0, 0, 600, 600);
     }
   }).then(canvas => {
     $("#previewImage")
