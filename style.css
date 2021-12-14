@@ -1,0 +1,232 @@
+@font-face {
+  font-family: "Circular STD";
+  src:
+    url(https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/circular-std-medium-500.ttf?v=1639464412926)
+    format("truetype");
+}
+
+:root {
+  --font: "Circular STD", sans-serif;
+  --color: #fff;
+  --bg-color: #3E3E3E;
+  --bg-color-focus: #333333;
+  --border-color-focus: #535353;
+}
+
+* {
+  font-family: var(--font) !important;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  background: #121212;
+  color: var(--color);
+  text-align: center;
+}
+button:hover {
+  cursor: pointer;
+}
+canvas {
+  padding-top: 10px;
+}
+input[type="file"] {
+  font-size: 135%;
+  padding-bottom: 15px;
+}
+input[type="file"]::file-selector-button {
+  font-family: var(--font);
+  background: var(--bg-color);
+  color: var(--color);
+  border: 1px solid var(--bg-color);
+}
+input[type="file"]::file-selector-button:active,
+input[type="file"]::file-selector-button:focus {
+  border: 1px solid var(--border-color-focus);
+  background: var(--bg-color-focus);
+}
+select {
+  padding: 5px;
+  color: var(--color);
+  text-align: center;
+  font-size: 135%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background: var(--bg-color);
+  border: 1px solid var(--bg-color);
+}
+select:focus {
+  background: var(--bg-color-focus);
+  border: 1px solid var(--border-color-focus);
+}
+textarea {
+  border: none;
+  color: var(--color);
+  background-color: var(--bg-color);
+  resize: none;
+  font-size: 135%;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--bg-color);
+  overflow: hidden;
+  height: fit-content;
+}
+textarea:focus {
+  background-color: var(--bg-color-focus);
+  border: 1px solid var(--border-color-focus);
+}
+
+#cover {
+  position: relative;
+  margin: auto;
+  width: 600px;
+  height: 600px;
+}
+#cover:hover {
+  cursor: pointer;
+}
+#cover-img {
+  width: 600px;
+  height: 600px;
+}
+#cover-logo {
+  width: 11%;
+  height: 11%;
+  z-index: 5;
+}
+#cover-logo.auto {
+  fill: white;
+  mix-blend-mode: difference;
+}
+#cover-logo.black {
+  fill: black;
+}
+#cover-logo.white {
+  fill: white;
+}
+#cover-logo.default {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+}
+#cover-logo.top-left {
+  position: absolute;
+  top: 9px;
+  right: 0px;
+}
+#cover-text {
+  font-size: 525%;
+  z-index: 100;
+  overflow-wrap: break-word;
+  font-weight: bold;
+  letter-spacing: 0.25px;
+}
+#cover-text.auto {
+  mix-blend-mode: difference;
+}
+#cover-text.black {
+  color: black;
+}
+#cover-text.white {
+  color: white;
+}
+#cover-text.top-left {
+  text-align: left;
+  width: 88%;
+  position: absolute;
+  top: 3px;
+  left: 9px;
+}
+#cover-text.top-right {
+  text-align: right;
+  width: 88%;
+  position: absolute;
+  top: 3px;
+  right: 9px;
+}
+#cover-text.bottom-left {
+  text-align: left;
+  width: 88%;
+  position: absolute;
+  bottom: 3px;
+  left: 9px;
+}
+#cover-text.bottom-right {
+  text-align: right;
+  width: 88%;
+  position: absolute;
+  bottom: 3px;
+  right: 9px;
+}
+#cover-text.center {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+.choices .choice {
+  font-size: 150%;
+  display: block;
+}
+.choices .choice:first-child {
+  padding-top: 15px;
+}
+
+.download {
+  margin-top: 20px;
+  font-size: 200%;
+  padding: 5px;
+  border-radius: 10px;
+  color: var(--color);
+  background: var(--bg-color);
+  border: 1px solid var(--bg-color);
+}
+.download:active {
+  background: var(--bg-color-focus);
+  border: 1px solid var(--border-color-focus);
+}
+
+.credit {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  background: var(--bg-color);
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 125%;
+  max-width: 125px;
+}
+.credit img {
+  width: 25px;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 900px) {
+  #cover {
+    width: 300px;
+    height: 300px;
+  }
+  #cover-img {
+    width: 300px;
+    height: 300px;
+  }
+  #cover-text {
+    font-size: 250%;
+  }
+  
+  .credit {
+    position: fixed;
+    bottom: 9px;
+    left: 5px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .credit {
+    display: none !important;
+  }
+}
