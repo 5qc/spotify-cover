@@ -51,78 +51,98 @@ $("#position").change(function() {
     $("#cover-text")
       .removeClass("top-left top-right bottom-left bottom-right center")
       .addClass("top-left");
+    $("#cover-logo")
+      .removeClass("default")
+      .addClass("top-left");
   }
   if ($("#position").val() == "top-right") {
     $("#cover-text")
       .removeClass("top-left top-right bottom-left bottom-right center")
       .addClass("top-right");
+    $("#cover-logo")
+      .removeClass("top-left")
+      .addClass("default");
   }
   if ($("#position").val() == "bottom-left") {
     $("#cover-text")
       .removeClass("top-left top-right bottom-left bottom-right center")
       .addClass("bottom-left");
+    $("#cover-logo")
+      .removeClass("top-left")
+      .addClass("default");
   }
   if ($("#position").val() == "bottom-right") {
     $("#cover-text")
       .removeClass("top-left top-right bottom-left bottom-right center")
       .addClass("bottom-right");
+    $("#cover-logo")
+      .removeClass("top-left")
+      .addClass("default");
   }
   if ($("#position").val() == "center") {
     $("#cover-text")
       .removeClass("top-left top-right bottom-left bottom-right")
       .addClass("center");
+    $("#cover-logo")
+      .removeClass("top-left")
+      .addClass("default");
   }
 });
 
 // Change text color
 $("#textColor").change(function() {
-  if ($("#textColor").val() == "auto") {
-    $("#cover-text")
-      .removeClass("auto black white")
-      .addClass("auto");
-  }
   if ($("#textColor").val() == "black") {
     $("#cover-text")
-      .removeClass("auto black white")
+      .removeClass("black white green")
       .addClass("black");
   }
   if ($("#textColor").val() == "white") {
     $("#cover-text")
-      .removeClass("auto black white")
+      .removeClass("black white green")
       .addClass("white");
+  }
+  if ($("#textColor").val() == "green") {
+    $("#cover-text")
+      .removeClass("black white green")
+      .addClass("green");
   }
 });
 
 // Change logo color
 $("#logoColor").change(function() {
-  if ($("#logoColor").val() == "auto") {
-    $("#cover-logo")
-      .removeClass("auto black white none transparent")
-      .addClass("auto");
-  }
   if ($("#logoColor").val() == "black") {
     $("#cover-logo")
-      .removeClass("auto black white none transparent")
+      .removeClass("black white green none transparent")
       .addClass("black");
   }
   if ($("#logoColor").val() == "black-transparent") {
     $("#cover-logo")
-      .removeClass("auto black white none transparent")
+      .removeClass("black white green none transparent")
       .addClass("black transparent")
   }
   if ($("#logoColor").val() == "white") {
     $("#cover-logo")
-      .removeClass("auto black white none transparent")
+      .removeClass("black white green none transparent")
       .addClass("white");
   }
   if ($("#logoColor").val() == "white-transparent") {
     $("#cover-logo")
-      .removeClass("auto black white none transparent")
+      .removeClass("black white green none transparent")
       .addClass("white transparent")
+  }
+  if ($("#logoColor").val() == "green") {
+    $("#cover-logo")
+      .removeClass("black white green none transparent")
+      .addClass("green")
+  }
+  if ($("#logoColor").val() == "green-transparent") {
+    $("#cover-logo")
+      .removeClass("black white green none transparent")
+      .addClass("green transparent")
   }
   if ($("#logoColor").val() == "none") {
     $("#cover-logo")
-      .removeClass("auto black white none transparent")
+      .removeClass("black white green none transparent")
       .addClass("none");
   }
 });
@@ -150,6 +170,7 @@ $("#download").click(function() {
   }).then(canvas => {
     $("#previewImage")
       .empty()
+      .append('<span class="download-info">To download, right click on the image and click <b>Save image as</b>.</span><br />')
       .append(canvas);
   });
 });
