@@ -37,9 +37,6 @@ body {
 button:hover {
   cursor: pointer;
 }
-canvas {
-  padding-top: 10px;
-}
 input[type="file"] {
   font-size: 135%;
   padding-bottom: 15px;
@@ -92,15 +89,13 @@ textarea:focus {
   margin: auto;
   width: 600px;
   height: 600px;
+  overflow: clip;
 }
 #cover:hover {
   cursor: pointer;
 }
 #cover-img {
-  min-width: 600px;
-  min-height: 600px;
-  max-width: 600px;
-  max-height: 600px;
+  height: 600px;
 }
 #cover-logo {
   width: 11%;
@@ -116,6 +111,9 @@ textarea:focus {
 }
 #cover-logo.white {
   fill: white;
+}
+#cover-logo.green {
+  fill: #1ED760;
 }
 #cover-logo.none {
   fill: transparent;
@@ -150,32 +148,35 @@ textarea:focus {
 #cover-text.white {
   color: white;
 }
+#cover-text.green {
+  color: #1ED760;
+}
 #cover-text.top-left {
   text-align: left;
   width: 88%;
   position: absolute;
-  top: 3px;
+  top: 0px;
   left: 9px;
 }
 #cover-text.top-right {
   text-align: right;
   width: 88%;
   position: absolute;
-  top: 3px;
+  top: 0px;
   right: 9px;
 }
 #cover-text.bottom-left {
   text-align: left;
   width: 88%;
   position: absolute;
-  bottom: 3px;
+  bottom: 0px;
   left: 9px;
 }
 #cover-text.bottom-right {
   text-align: right;
   width: 88%;
   position: absolute;
-  bottom: 3px;
+  bottom: 0px;
   right: 9px;
 }
 #cover-text.center {
@@ -222,6 +223,11 @@ textarea:focus {
 .credit img {
   width: 25px;
   vertical-align: middle;
+}
+
+.download-info {
+  font-size: 125%;
+  padding-top: 10px;
 }
 
 @media screen and (max-width: 900px) {  
