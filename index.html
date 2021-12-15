@@ -11,13 +11,13 @@
     <meta property="og:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.roc0ast3r.dev/spotify" />
-    <meta property="og:image" content="https://cdn.discordapp.com/attachments/454473144565104640/788494781755555890/20201215_101750.jpg" />
+    <meta property="og:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="https://www.roc0ast3r.dev/spotify" />
     <meta name="twitter:creator" content="@roc0ast3r" />
     <meta name="twitter:title" content="Spotify Cover Generator" />
     <meta name="twitter:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
-    <meta name="twitter:image" content="https://cdn.discordapp.com/attachments/454473144565104640/788494781755555890/20201215_101750.jpg" />
+    <meta name="twitter:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
 
     <link rel="stylesheet" href="/style.css" />
     
@@ -42,14 +42,14 @@
     
     <div class="choices">
       <span class="choice">Type</span>
-      <select name="type" id="d">
-        <option value="regular" selected>Regular</option>
+      <select name="type" id="type">
+        <option value="regular">Regular</option>
       </select>
       
-      <span class="choice">Text</span>
+      <span class="choice text-choice">Text</span>
       <textarea id="text" rows="1" oninput="auto_grow(this)"></textarea>
       
-      <span class="choice">Text Position</span>
+      <span class="choice text-position-choice">Text Position</span>
       <select name="position" id="position">
         <option value="top-left">Top left</option>
         <option value="top-right" selected>Top right</option>
@@ -58,22 +58,25 @@
         <option value="center">Center</option>
       </select>
       
-      <span class="choice">Text Color</span>
+      <span class="choice text-color-choice">Text Color</span>
       <select name="textcolor" id="textColor">
         <option value="black">Black</option>
         <option value="white" selected>White</option>
+        <option value="green">Green</option>
       </select>
       
-      <span class="choice">Logo Color</span>
+      <span class="choice logo-color-choice">Logo Color</span>
       <select name="logocolor" id="logoColor">
         <option value="black">Black</option>
         <option value="black-transparent">Black transparent</option>
         <option value="white" selected>White</option>
         <option value="white-transparent">White transparent</option>
+        <option value="green">Green</option>
+        <option value="green-transparent">Green transparent</option>
         <option value="none">None</option>
       </select>
       
-      <span class="choice">Image (URL)</span>
+      <span class="choice image-url-choice">Image (URL)</span>
       <textarea id="image" rows="1" oninput="auto_grow(this)"></textarea>
       <br />
       <button id="download" class="download">Download</button>
