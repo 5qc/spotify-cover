@@ -102,10 +102,6 @@ textarea:focus {
   height: 11%;
   z-index: 5;
 }
-#cover-logo.auto {
-  fill: white;
-  mix-blend-mode: difference;
-}
 #cover-logo.black {
   fill: black;
 }
@@ -114,6 +110,15 @@ textarea:focus {
 }
 #cover-logo.green {
   fill: #1ED760;
+}
+#cover-logo.orange {
+  fill: #FFA41F;
+}
+#cover-logo.red {
+  fill: #EC0A20;
+}
+#cover-logo.yellow {
+  fill: #FEEA27;
 }
 #cover-logo.none {
   fill: transparent;
@@ -151,6 +156,15 @@ textarea:focus {
 #cover-text.green {
   color: #1ED760;
 }
+#cover-text.orange {
+  color: #FFA41F;
+}
+#cover-text.red {
+  color: #EC0A20;
+}
+#cover-text.yellow {
+  color: #FEEA27;
+}
 #cover-text.top-left {
   text-align: left;
   width: 88%;
@@ -170,14 +184,14 @@ textarea:focus {
   width: 88%;
   position: absolute;
   bottom: 0px;
-  left: 9px;
+  left: 15px;
 }
 #cover-text.bottom-right {
   text-align: right;
   width: 88%;
   position: absolute;
   bottom: 0px;
-  right: 9px;
+  right: 15px;
 }
 #cover-text.center {
   text-align: center;
