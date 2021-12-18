@@ -8,9 +8,7 @@ if (document.getElementById("image").val == undefined) {
 
 $("#image").keyup(function() {
   var imageURL = $(this).val();
-  $("#cover-img")
-    .removeAttr("src")
-    .attr("src", imageURL);
+  $("#cover-img").removeAttr("src").attr("src", imageURL);
 });
 
 function imgError(image) {
@@ -81,7 +79,7 @@ $("#position").change(function() {
   }
   if ($("#position").val() == "center") {
     $("#cover-text")
-      .removeClass("top-left top-right bottom-left bottom-right")
+      .removeClass("top-left top-right bottom-left bottom-right center")
       .addClass("center");
     $("#cover-logo")
       .removeClass("top-left")
@@ -90,21 +88,39 @@ $("#position").change(function() {
 });
 
 // Change text color
+var colors = "black white green orange red yellow"
+var logoColors = colors + "none"
+
 $("#textColor").change(function() {
   if ($("#textColor").val() == "black") {
     $("#cover-text")
-      .removeClass("black white green")
+      .removeClass(colors)
       .addClass("black");
   }
   if ($("#textColor").val() == "white") {
     $("#cover-text")
-      .removeClass("black white green")
+      .removeClass(colors)
       .addClass("white");
   }
   if ($("#textColor").val() == "green") {
     $("#cover-text")
-      .removeClass("black white green")
+      .removeClass(colors)
       .addClass("green");
+  }
+  if ($("#textColor").val() == "orange") {
+    $("#cover-text")
+      .removeClass(colors)
+      .addClass("orange");
+  }
+  if ($("#textColor").val() == "red") {
+    $("#cover-text")
+      .removeClass(colors)
+      .addClass("red")
+  }
+  if ($("#textColor").val() == "yellow") {
+    $("#cover-text")
+      .removeClass(colors)
+      .addClass("yellow")
   }
 });
 
@@ -112,38 +128,51 @@ $("#textColor").change(function() {
 $("#logoColor").change(function() {
   if ($("#logoColor").val() == "black") {
     $("#cover-logo")
-      .removeClass("black white green none transparent")
+      .removeClass(logoColors)
       .addClass("black");
-  }
-  if ($("#logoColor").val() == "black-transparent") {
-    $("#cover-logo")
-      .removeClass("black white green none transparent")
-      .addClass("black transparent")
   }
   if ($("#logoColor").val() == "white") {
     $("#cover-logo")
-      .removeClass("black white green none transparent")
+      .removeClass(logoColors)
       .addClass("white");
-  }
-  if ($("#logoColor").val() == "white-transparent") {
-    $("#cover-logo")
-      .removeClass("black white green none transparent")
-      .addClass("white transparent")
   }
   if ($("#logoColor").val() == "green") {
     $("#cover-logo")
-      .removeClass("black white green none transparent")
+      .removeClass(logoColors)
       .addClass("green")
   }
-  if ($("#logoColor").val() == "green-transparent") {
+  if ($("#logoColor").val() == "orange") {
     $("#cover-logo")
-      .removeClass("black white green none transparent")
-      .addClass("green transparent")
+      .removeClass(logoColors)
+      .addClass("orange")
+  }
+  if ($("#logoColor").val() == "red") {
+    $("#cover-logo")
+      .removeClass(logoColors)
+      .addClass("red")
+  }
+  if ($("#logoColor").val() == "yellow") {
+    $("#cover-logo")
+      .removeClass(logoColors)
+      .addClass("yellow")
   }
   if ($("#logoColor").val() == "none") {
     $("#cover-logo")
-      .removeClass("black white green none transparent")
+      .removeClass(logoColors)
       .addClass("none");
+  }
+});
+
+// Change logo transparency
+$("#transparent").change(function() {
+  if ($("#transparent").val() == "yes") {
+    $("#cover-logo")
+      .removeClass("transparent")
+      .addClass("transparent");
+  }
+  if ($("#transparent").val() == "no") {
+    $("#cover-logo")
+      .removeClass("transparent")
   }
 });
 
