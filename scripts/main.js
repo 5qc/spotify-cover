@@ -43,6 +43,88 @@ $("#text").keyup(function() {
   $("#cover-text").text(currentText);
 });
 
+// Types
+var defaultStuff = "#cover, .text-choice, #text, .text-position-choice, #position, .text-color-choice, #textColor, .logo-color-choice, #logoColor, .transparent-choice, #transparent, .image-url-choice, #image";
+var topNoStuff = "#topno-cover, .top-choice, #top, .top-color-choice, #topColor, .location-choice, #location, .location-color-choice, #locationColor, .bar-color-choice, #barColor, .gradient-choice, #gradient1, #gradient2"
+$(topNoStuff).addClass("hide");
+
+$("#type").change(function() {
+  if ($("#type").val() == "default") {
+    $(defaultStuff).removeClass("hide");
+    $(topNoStuff).addClass("hide");
+  }
+  if ($("#type").val() == "top-no") {
+    $(defaultStuff).addClass("hide");
+    $(topNoStuff).removeClass("hide");
+  }
+});
+
+// Top # Cover Stuff
+$("#top").keyup(function() {
+  var topText = $(this).val();
+  if ($("#top").val() != "") {
+    $("#topno-cover-text-top").html("Top " + topText);
+  } else {
+    $("#topno-cover-text-top").html("")
+  }
+});
+
+$("#location").keyup(function() {
+  var locationText = $(this).val();
+  $("#topno-cover-text-location").html(locationText);
+})
+
+$("#gradient1, #gradient2").keyup(function() {
+  var gradient1 = $("#gradient1").val();
+  var gradient2 = $("#gradient2").val();
+  $("#topno-cover").css("background", "linear-gradient(to bottom, " + gradient1 + ", " + gradient2 + ")");
+});
+
+var topNoColors = "black, white"
+$("#topColor").change(function() {
+  if ($("#topColor").val() == "black") {
+    $("#topno-cover-text-top")
+      .removeClass(topNoColors)
+      .addClass("black")
+  }
+  if ($("#topColor").val() == "white") {
+    $("#topno-cover-text-top")
+      .removeClass(topNoColors)
+      .addClass("white")
+  }
+});
+$("#locationColor").change(function() {
+  if ($("#locationColor").val() == "black") {
+    $("#topno-cover-text-location")
+      .removeClass(topNoColors)
+      .addClass("black")
+  }
+  if ($("#locationColor").val() == "white") {
+    $("#topno-cover-text-location")
+      .removeClass(topNoColors)
+      .addClass("white")
+  }
+});
+$("#barColor").change(function() {
+  if ($("#barColor").val() == "black") {
+    $("#topno-cover-bar")
+      .removeClass(topNoColors)
+      .addClass("black")
+  }
+  if ($("#barColor").val() == "white") {
+    $("#topno-cover-bar")
+      .removeClass(topNoColors)
+      .addClass("white")
+  }
+});
+
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
 // Change text position
 $("#position").change(function() {
   if ($("#position").val() == "top-left") {
