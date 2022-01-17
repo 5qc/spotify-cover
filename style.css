@@ -11,6 +11,7 @@
   --bg-color: #3E3E3E;
   --bg-color-focus: #333333;
   --border-color-focus: #535353;
+  --cover-size: 600px;
 }
 
 * {
@@ -66,6 +67,9 @@ select:focus {
   background: var(--bg-color-focus);
   border: 1px solid var(--border-color-focus);
 }
+select::-ms-expand {
+  display: none;
+}
 textarea {
   border: none;
   color: var(--color);
@@ -84,59 +88,90 @@ textarea:focus {
   border: 1px solid var(--border-color-focus);
 }
 
-#cover {
+hr {
+  border: none;
+  border-top: 2px solid;
+  background: none;
+}
+hr.white {
+  border-color: white !important;
+}
+hr.black {
+  border-color: black !important;
+}
+
+.black {
+  color: black;
+}
+.white {
+  color: white;
+}
+.green {
+  color: #1ED760;
+}
+.orange {
+  color: #FFA41F;
+}
+.red {
+  color: #EC0A20;
+}
+.yellow {
+  color: #FEEA27;
+}
+
+.cover {
   position: relative;
   margin: auto;
-  width: 600px;
-  height: 600px;
+  width: var(--cover-size);
+  height: var(--cover-size);
   overflow: clip;
 }
-#cover:hover {
+.cover:hover {
   cursor: pointer;
 }
-#cover-img {
-  height: 600px;
+.image {
+  height: var(--cover-size);
 }
-#cover-logo {
+.logo {
   width: 11%;
   height: 11%;
   z-index: 5;
 }
-#cover-logo.black {
+.logo.black {
   fill: black;
 }
-#cover-logo.white {
+.logo.white {
   fill: white;
 }
-#cover-logo.green {
+.logo.green {
   fill: #1ED760;
 }
-#cover-logo.orange {
+.logo.orange {
   fill: #FFA41F;
 }
-#cover-logo.red {
+.logo.red {
   fill: #EC0A20;
 }
-#cover-logo.yellow {
+.logo.yellow {
   fill: #FEEA27;
 }
-#cover-logo.none {
+.logo.none {
   fill: transparent;
 }
-#cover-logo.transparent {
+.logo.transparent {
   opacity: 50%;
 }
-#cover-logo.default {
+.logo.default {
   position: absolute;
   top: 9px;
   left: 9px;
 }
-#cover-logo.top-left {
+.logo.top-left {
   position: absolute;
   top: 9px;
   right: 0px;
 }
-#cover-text {
+.cover-text {
   font-size: 525%;
   z-index: 100;
   overflow-wrap: break-word;
@@ -144,62 +179,78 @@ textarea:focus {
   letter-spacing: 0.25px;
   height: auto;
 }
-#cover-text.auto {
+.cover-text.auto {
   mix-blend-mode: difference;
 }
-#cover-text.black {
-  color: black;
-}
-#cover-text.white {
-  color: white;
-}
-#cover-text.green {
-  color: #1ED760;
-}
-#cover-text.orange {
-  color: #FFA41F;
-}
-#cover-text.red {
-  color: #EC0A20;
-}
-#cover-text.yellow {
-  color: #FEEA27;
-}
-#cover-text.top-left {
+.cover-text.top-left {
   text-align: left;
   width: 88%;
   position: absolute;
   top: 0px;
   left: 9px;
 }
-#cover-text.top-right {
+.cover-text.top-right {
   text-align: right;
   width: 88%;
   position: absolute;
   top: 0px;
   right: 9px;
 }
-#cover-text.bottom-left {
+.cover-text.bottom-left {
   text-align: left;
   width: 88%;
   position: absolute;
   bottom: 0px;
   left: 15px;
 }
-#cover-text.bottom-right {
+.cover-text.bottom-right {
   text-align: right;
   width: 88%;
   position: absolute;
   bottom: 0px;
   right: 15px;
 }
-#cover-text.center {
+.cover-text.center {
   text-align: center;
   width: 100%;
   position: absolute;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -25%);
+}
+
+#topno-cover-logo {
+  width: 9%;
+  height: 9%;
+  position: absolute;
+  top: 17px;
+  left: 17px;
+}
+#topno-cover-text-top {
+  position: absolute;
+  top: 32.5%;
+  left: 50%;
+  transform: translate(-50%, -32.5%);
+  font-size: 75px;
+  font-weight: bold;
+}
+#topno-cover-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  width: 50%;
+}
+#topno-cover-text-location {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .choices .choice {
@@ -242,6 +293,10 @@ textarea:focus {
 .download-info {
   font-size: 125%;
   padding-top: 10px;
+}
+
+.hide {
+  display: none !important;
 }
 
 @media screen and (max-width: 900px) {  
