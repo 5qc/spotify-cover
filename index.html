@@ -19,28 +19,46 @@
     <meta name="twitter:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
     <meta name="twitter:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
 
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/spotify/style.css" />
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.3.3/dist/html2canvas.min.js"></script>
-    <script src="/scripts/canvas2image.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
-    <script src="/scripts/main.js" defer></script>
+    <script src="/spotify/scripts/main.js" defer></script>
   </head>
   <body>
-    <div id="cover">
-      <img id="cover-img" onerror="imgError(this)" />
-      <svg id="cover-logo" class="default white"
+    <div id="cover" class="cover">
+      <img id="cover-img" class="image" onerror="imgError(this)" />
+      <svg id="cover-logo" class="logo default white"
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
-        viewBox="0 0 215 215"
+        viewbox="0 0 215 215"
       >
         <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
       </svg>
-      <span id="cover-text" class="top-right white"></span>
+      <span id="cover-text" class="cover-text top-right white"></span>
+    </div>
+    <div id="topno-cover" class="cover" style="background:linear-gradient(to bottom, black, white)">
+      <svg id="topno-cover-logo" class="logo default white transparent"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewbox="0 0 215 215"
+      >
+        <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
+      </svg>
+      <div id="topno-cover-text-top" class="white"></div>
+      <hr id="topno-cover-bar" />
+      <span id="topno-cover-text-location" class="white"></span>
     </div>
     
     <div class="choices">
+      <!-- Default -->
+      <span class="choice type-choice">Type</span>
+      <select name="type" id="type">
+        <option value="default" selected>Default</option>
+        <option value="top-no">Top #</option>
+      </select>
+      
       <span class="choice text-choice">Text</span>
       <textarea id="text" rows="1" oninput="auto_grow(this)"></textarea>
       
@@ -81,16 +99,45 @@
       
       <span class="choice image-url-choice">Image (URL)</span>
       <textarea id="image" rows="1" oninput="auto_grow(this)"></textarea>
+      
+      <!-- Top # -->
+      <span class="choice top-choice">Top</span>
+      <textarea id="top" rows="1" type="number" oninput="auto_grow(this)" onkeypress="return isNumberKey(event)"></textarea>
+  
+      <span class="choice top-color-choice">Top Color</span>
+      <select name="topcolor" id="topColor">
+        <option value="black">Black</option>
+        <option value="white" selected>White</option>
+      </select>
+      
+      <span class="choice location-choice">Location</span>
+      <textarea id="location" rows="1" oninput="auto_grow(this)"></textarea>
+      
+      <span class="choice location-color-choice">Location Color</span>
+      <select name="locationcolor" id="locationColor">
+        <option value="black">Black</option>
+        <option value="white" selected>White</option>
+      </select>
+      
+      <span class="choice bar-color-choice">Bar Color</span>
+      <select name="barcolor" id="barColor">
+        <option value="black">Black</option>
+        <option value="white" selected>White</option>
+      </select>
+      
+      <span class="choice gradient-choice">Gradient</span>
+      <textarea id="gradient1" rows="1" oninput="auto_grow(this)"></textarea>
+      <textarea id="gradient2" rows="1" oninput="auto_grow(this)"></textarea>
       <br />
       <button id="download" class="download">Download</button>
       <div id="previewImage"></div>
     </div>
     
     <div class="credit">
-      <a href="//youtube.com/roc0ast3r"><img src="/images/youtube.svg" /></a>
-      <a href="//twitter.com/roc0ast3r"><img src="/images/twitter.svg" /></a>
-      <a href="//instagr.am/roc0ast3r"><img src="/images/instagram.svg" /></a>
-      <a href="//github.com/5qc/spotify-cover"><img src="/images/github.svg" /></a>
+      <a href="//youtube.com/roc0ast3r"><img src="/spotify/images/youtube.svg" /></a>
+      <a href="//twitter.com/roc0ast3r"><img src="/spotify/images/twitter.svg" /></a>
+      <a href="//instagr.am/roc0ast3r"><img src="/spotify/images/instagram.svg" /></a>
+      <a href="//github.com/5qc/spotify-cover"><img src="/spotify/images/github.svg" /></a>
     </div>
     
     <span class="display-too-small">
