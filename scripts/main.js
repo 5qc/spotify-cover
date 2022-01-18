@@ -44,8 +44,8 @@ $("#text").keyup(function() {
 });
 
 // Types
-var defaultStuff = "#cover, .text-choice, #text, .text-position-choice, #position, .text-color-choice, #textColor, .logo-color-choice, #logoColor, .transparent-choice, #transparent, .image-url-choice, #image";
-var topNoStuff = "#topno-cover, .top-choice, #top, .top-color-choice, #topColor, .location-choice, #location, .location-color-choice, #locationColor, .bar-color-choice, #barColor, .gradient-choice, #gradient1, #gradient2"
+var defaultStuff = "#cover, #download, .text-choice, #text, .text-position-choice, #position, .text-color-choice, #textColor, .logo-color-choice, #logoColor, .transparent-choice, #transparent, .image-url-choice, #image";
+var topNoStuff = "#topno-cover, #coverno-download, .top-choice, #top, .top-color-choice, #topColor, .location-choice, #location, .location-color-choice, #locationColor, .bar-color-choice, #barColor, .gradient-choice, #gradient1, #gradient2"
 $(topNoStuff).addClass("hide");
 
 $("#type").change(function() {
@@ -77,7 +77,7 @@ $("#location").keyup(function() {
 $("#gradient1, #gradient2").keyup(function() {
   var gradient1 = $("#gradient1").val();
   var gradient2 = $("#gradient2").val();
-  $("#topno-cover").css("background", "linear-gradient(to bottom, " + gradient1 + ", " + gradient2 + ")");
+  $("#topno-cover-bg").css("background", "linear-gradient(to bottom, " + gradient1 + ", " + gradient2 + ")");
 });
 
 var topNoColors = "black, white"
@@ -283,5 +283,29 @@ $("#download").click(function() {
       .empty()
       .append('<span class="download-info">To download, right click on the image and click <b>Save image as</b>.</span><br />')
       .append(canvas);
+    $(".alert")
+      .removeClass("hide fade-out")
+      .addClass("fade-out")
+    setTimeout(function() {
+      $(".alert").addClass("hide")
+    }, 4000);
+  });
+});
+$("#coverno-download").click(function() {
+  html2canvas(document.querySelector("#topno-cover"), {
+    onrendered: function(canvas) {
+      var context = canvas.getContext("2d");
+    }
+  }).then(canvas => {
+    $("#previewImage")
+      .empty()
+      .append('<span class="download-info">To download, right click on the image and click <b>Save image as</b>.</span><br />')
+      .append(canvas);
+    $(".alert")
+      .removeClass("hide fade-out")
+      .addClass("fade-out")
+    setTimeout(function() {
+      $(".alert").addClass("hide")
+    }, 4000);
   });
 });
