@@ -46,16 +46,25 @@ $("#text").keyup(function() {
 // Types
 var defaultStuff = "#cover, #download, .text-choice, #text, .text-position-choice, #position, .text-color-choice, #textColor, .logo-color-choice, #logoColor, .transparent-choice, #transparent, .image-url-choice, #image";
 var topNoStuff = "#topno-cover, #coverno-download, .top-choice, #top, .top-color-choice, #topColor, .location-choice, #location, .location-color-choice, #locationColor, .bar-color-choice, #barColor, .gradient-choice, #gradient1, #gradient2"
+var thisIsStuff = "#thisis-cover, #thisis-download, .artist-choice, #thisis-artist, .thisis-image-choice, #thisis-image, .thisis-gradient-choice, #thisis-gradient1, #thisis-gradient2";
 $(topNoStuff).addClass("hide");
+$(thisIsStuff).addClass("hide")
 
 $("#type").change(function() {
   if ($("#type").val() == "default") {
     $(defaultStuff).removeClass("hide");
     $(topNoStuff).addClass("hide");
+    $(thisIsStuff).addClass("hide");
   }
   if ($("#type").val() == "top-no") {
-    $(defaultStuff).addClass("hide");
     $(topNoStuff).removeClass("hide");
+    $(defaultStuff).addClass("hide");
+    $(thisIsStuff).addClass("hide");
+  }
+  if ($("#type").val() == "this-is") {
+    $(thisIsStuff).removeClass("hide");
+    $(defaultStuff).addClass("hide");
+    $(topNoStuff).addClass("hide");
   }
 });
 
@@ -124,6 +133,29 @@ function isNumberKey(evt){
         return false;
     return true;
 }
+
+// This Is Cover Stuff
+$("#thisis-artist").keyup(function() {
+  var artistText = $(this).val();
+  if (artistText != "") {
+    $("#thisis-cover-text-thisis").html("THIS IS")
+    $("#thisis-cover-text-artist").html(artistText)
+  } else {
+    $("#thisis-cover-text-thisis").html("")
+    $("#thisis-cover-text-artist").html("")
+  }
+});
+
+$("#thisis-image").keyup(function() {
+  var imageURL = $(this).val();
+  $("#thisis-cover-img").removeAttr("src").attr("src", imageURL);
+});
+
+$("#thisis-gradient1, #thisis-gradient2").keyup(function() {
+  var gradient1 = $("#thisis-gradient1").val();
+  var gradient2 = $("#thisis-gradient2").val();
+  $("#thisis-cover-bg-gradient").css("background", "linear-gradient(to bottom, " + gradient1 + ", " + gradient2 + ")");
+});
 
 // Change text position
 $("#position").change(function() {
@@ -295,6 +327,28 @@ $("#coverno-download").click(function() {
   html2canvas(document.querySelector("#topno-cover"), {
     onrendered: function(canvas) {
       var context = canvas.getContext("2d");
+    }
+  }).then(canvas => {
+    $("#previewImage")
+      .empty()
+      .append('<span class="download-info">To download, right click on the image and click <b>Save image as</b>.</span><br />')
+      .append(canvas);
+    $(".alert")
+      .removeClass("hide fade-out")
+      .addClass("fade-out")
+    setTimeout(function() {
+      $(".alert").addClass("hide")
+    }, 4000);
+  });
+});
+$("#thisis-download").click(function() {
+  html2canvas(document.querySelector("#thisis-cover"), {
+    useCORS: true,
+    onrendered: function(canvas) {
+      var context = canvas.getContext("2d");
+      var img = new Image();
+      img.src = document.getElementById("thisis-cover-img").src;
+      img.onload = context.drawImage(img, 0, 0, 600, 600);
     }
   }).then(canvas => {
     $("#previewImage")
