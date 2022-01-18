@@ -100,6 +100,25 @@ hr.black {
   border-color: black !important;
 }
 
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 35px;
+  z-index: 99999;
+}
+.alert svg {
+  margin-top: 0.25%;
+}
+.alert.success {
+  background: #1ED760;
+}
+.reset {
+  font-family: sans-serif;
+}
+
 .black {
   color: black;
 }
@@ -127,7 +146,7 @@ hr.black {
   overflow: clip;
 }
 .cover:hover {
-  cursor: pointer;
+  cursor: default;
 }
 .image {
   height: var(--cover-size);
@@ -219,12 +238,16 @@ hr.black {
   transform: translate(-50%, -25%);
 }
 
+#topno-cover-bg {
+  width: 100%;
+  height: 100%;
+}
 #topno-cover-logo {
   width: 9%;
   height: 9%;
   position: absolute;
-  top: 17px;
-  left: 17px;
+  top: 10px;
+  left: 10px;
 }
 #topno-cover-text-top {
   position: absolute;
@@ -299,6 +322,36 @@ hr.black {
   display: none !important;
 }
 
+/** Anims **/
+.fade-out {
+	-webkit-animation: fade-out 4s ease-out both;
+	        animation: fade-out 4s ease-out both;
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/** Media Stuff **/
 @media screen and (max-width: 900px) {  
   .credit {
     position: fixed;
@@ -312,9 +365,10 @@ hr.black {
   }
 }
 @media screen and (max-width: 750px) {
-  #cover,
+  .cover,
   .choices,
-  .credit {
+  .credit,
+  .alert {
     display: none;
   }
   
