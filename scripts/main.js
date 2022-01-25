@@ -1,3 +1,8 @@
+window.addEventListener("load", function() {
+  const loader = document.querySelector(".loader");
+  loader.className += " fade-out2";
+});
+
 // Make all links open in a new window
 $("a").attr("target", "_blank");
 
@@ -203,7 +208,7 @@ $("#position").change(function() {
 
 // Change text color
 var colors = "black white green orange red yellow"
-var logoColors = colors + "none"
+var logoColors = colors + " none"
 
 $("#textColor").change(function() {
   if ($("#textColor").val() == "black") {
