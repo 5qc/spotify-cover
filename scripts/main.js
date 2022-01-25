@@ -26,6 +26,10 @@ function imgError(image) {
   });
   return true;
 }
+function blankImgError(image) {
+  $(image).attr("src", "//upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png");
+  return true;
+}
 
 // Load the file from input
 var loadFile = function(event) {
