@@ -48,12 +48,12 @@ function auto_grow(element) {
 
 // Put text on image
 $("#text").keyup(function() {
-  var currentText = $(this).val();
-  $("#cover-text").text(currentText);
+  var currentText = $(this).val().replace(/\n/g, "<br />");
+  $("#cover-text").html(currentText);
 });
 
 // Types
-var defaultStuff = "#cover, #download, .text-choice, #text, .text-position-choice, #position, .text-color-choice, #textColor, .logo-color-choice, #logoColor, .transparent-choice, #transparent, .image-url-choice, #image";
+var defaultStuff = "#cover, #download, .text-choice, #text, .text-position-choice, #position, .text-color-choice, #textColor, .text-size-choice, #textSize, .logo-color-choice, #logoColor, .transparent-choice, #transparent, .image-url-choice, #image";
 var topNoStuff = "#topno-cover, #coverno-download, .top-choice, #top, .top-color-choice, #topColor, .location-choice, #location, .location-color-choice, #locationColor, .bar-color-choice, #barColor, .gradient-choice, #gradient1, #gradient2"
 var thisIsStuff = "#thisis-cover, #thisis-download, .artist-choice, #thisis-artist, .thisis-image-choice, #thisis-image, .thisis-gradient-choice, #thisis-gradient1, #thisis-gradient2";
 $(topNoStuff).addClass("hide");
@@ -246,6 +246,27 @@ $("#textColor").change(function() {
       .addClass("yellow")
   }
 });
+
+// Change Text Sizes
+var sizes = "extra-small small large extra-large"
+
+$("#textSize").change(function() {
+  if ($("#textSize").val() == "extra-small") {
+    $("#cover-text").removeClass(sizes).addClass("extra-small")
+  }
+  if ($("#textSize").val() == "small") {
+    $("#cover-text").removeClass(sizes).addClass("small")
+  }
+  if ($("#textSize").val() == "medium") {
+    $("#cover-text").removeClass(sizes)
+  }
+  if ($("#textSize").val() == "large") {
+    $("#cover-text").removeClass(sizes).addClass("large")
+  }
+  if ($("#textSize").val() == "extra-large") {
+    $("#cover-text").removeClass(sizes).addClass("extra-large")
+  }
+})
 
 // Change logo color
 $("#logoColor").change(function() {
