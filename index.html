@@ -19,12 +19,12 @@
     <meta name="twitter:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
     <meta name="twitter:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
 
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/spotify/style.css" />
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.3.3/dist/html2canvas.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.0/js/all.js"></script>
-    <script src="/scripts/main.js" defer></script>
+    <script src="/spotify/scripts/main.js" defer></script>
   </head>
   
   <body>
@@ -110,6 +110,15 @@
         <option value="orange">Orange</option>
         <option value="red">Red</option>
         <option value="yellow">Yellow</option>
+      </select>
+      
+      <span class="choice text-size-choice">Text Size</span>
+      <select name="textsize" id="textSize">
+        <option value="extra-small">Extra Small</option>
+        <option value="small">Small</option>
+        <option value="medium" selected>Medium</option>
+        <option value="large">Large</option>
+        <option value="extra-large">Extra Large</option>
       </select>
       
       <span class="choice logo-color-choice">Logo Color</span>
