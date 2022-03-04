@@ -1,0 +1,30 @@
+@use "colors" as *;
+
+.logo {
+    width: 11%;
+    height: 11%;
+    z-index: 5;
+
+    @each $color, $value in $colors {
+        &.#{$color} {
+            fill: #{$value};
+        }
+    }
+    &.none {
+        fill: transparent;
+    }
+    &.transparent {
+        opacity: 0.5;
+    }
+
+    &.default {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+    }
+    &.top-left {
+        position: absolute;
+        top: 9px;
+        right: 0px;
+    }
+}
