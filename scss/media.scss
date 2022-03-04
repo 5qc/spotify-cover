@@ -1,0 +1,46 @@
+@media screen and (max-width: 1250px) {
+    :root {
+      --cover-size: 400px;
+    }
+    
+    .choices {
+      width: 40%;
+    }
+    .choices img:first-of-type {
+      display: none;
+    }
+}
+@media screen and (max-width: 1000px) {
+    :root {
+      --cover-size: 250px;
+    }
+    
+    html, body {
+      font-size: 10px;
+    }
+}
+@media screen and (max-width: 900px) {  
+    .credit {
+      position: fixed;
+      bottom: 9px;
+      left: 5px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .credit {
+      display: none !important;
+    }
+}
+@media screen and (max-width: 750px) {
+    .cover,
+    .choices,
+    .credit,
+    .alert,
+    .loader {
+      display: none;
+    }
+    
+    .display-too-small {
+      display: block !important;
+    }
+}
