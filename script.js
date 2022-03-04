@@ -1,6 +1,6 @@
 window.addEventListener("load", function() {
     const loader = document.querySelector(".loader");
-    // loader.className += " fade-out2";
+    loader.className += " fade-out2";
 });
 
 // Make all links open in a new window
