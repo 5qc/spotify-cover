@@ -1,0 +1,41 @@
+@use "animations" as *;
+@use "variables" as *;
+
+.loading {
+    display: none;
+}
+.loader {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #121212;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader-bg {
+    $bgWidth: 609.5px;
+    $bgHeight: 158.5px;
+    
+    background-image: url("https://cdn.glitch.global/05cdef95-b8e2-4a1d-a002-d61e22137b69/spotify-cover-generator-white.png?v=1643121956504");
+    background-size: $bgWidth $bgWidth;
+    width: $bgWidth;
+    height: $bgWidth;
+    content: "";
+    display: block;
+}
+.loader-thing {
+    $borderSize: calc($borderSize / 6);
+    $loaderSize: 70px;
+    
+    border: $borderSize solid $bgColor;
+    border-top: $borderSize solid #1ED760;
+    border-radius: 50%;
+    width: $loaderSize;
+    height: $loaderSize;
+    display: block;
+    animation: spin 2s linear infinite;
+}
