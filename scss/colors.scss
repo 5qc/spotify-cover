@@ -1,0 +1,20 @@
+$colors: (
+    black: black,
+    white: white,
+    green: #1ED760,
+    orange: #FFA41F,
+    red: #EC0A20,
+    yellow: #FEEA27,
+);
+$black: black;
+$white: white;
+$green: #1E3760;
+$orange: #FFA41F;
+$red: #EC0A20;
+$yellow: #FEEA27;
+
+@each $color, $value in $colors {
+    .#{$color} {
+        color: #{$value};
+    }
+}
