@@ -1,3 +1,4 @@
+@use "sass:math" as math;
 @use "animations" as *;
 @use "variables" as *;
 
@@ -28,8 +29,8 @@
     display: block;
 }
 .loader-thing {
-    $borderSize: calc($borderSize / 6);
     $loaderSize: 70px;
+    $borderSize: math.div($loaderSize, 6);
     
     border: $borderSize solid $bgColor;
     border-top: $borderSize solid #1ED760;
