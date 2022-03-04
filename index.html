@@ -1,211 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="//upload.wikimedia.org/wikipedia/commons/2/21/Solid_black.svg" />
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="//upload.wikimedia.org/wikipedia/commons/2/21/Solid_black.svg" />
 
-    <title>Spotify Cover Generator</title>
-    <meta property="og:title" content="Spotify Cover Generator" />
-    <meta property="og:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.roc0ast3r.dev/spotify" />
-    <meta property="og:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="https://www.roc0ast3r.dev/spotify" />
-    <meta name="twitter:creator" content="@roc0ast3r" />
-    <meta name="twitter:title" content="Spotify Cover Generator" />
-    <meta name="twitter:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
-    <meta name="twitter:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
+      <title>Spotify Cover Generator</title>
+      <meta property="og:title" content="Spotify Cover Generator" />
+      <meta property="og:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://www.roc0ast3r.dev/spotify" />
+      <meta property="og:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="https://www.roc0ast3r.dev/spotify" />
+      <meta name="twitter:creator" content="@roc0ast3r" />
+      <meta name="twitter:title" content="Spotify Cover Generator" />
+      <meta name="twitter:description" content="Create official-looking Spotify playlist covers. (plz don't sue me spotify)" />
+      <meta name="twitter:image" content="https://cdn.glitch.me/05cdef95-b8e2-4a1d-a002-d61e22137b69/download%20(64).png?v=1639535726119" />
 
-    <link rel="stylesheet" href="/spotify/style.css" />
+      <link rel="stylesheet" href="/style.css" />
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.3.3/dist/html2canvas.min.js"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.15.0/js/all.js"></script>
+      <script src="/script.js" defer></script>
+    </head>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.3.3/dist/html2canvas.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.15.0/js/all.js"></script>
-    <script src="/spotify/scripts/main.js" defer></script>
-  </head>
-  
-  <body>
-    <div class="loader">
-      <div class="loader-bg"></div>
-      <div class="loader-thing"></div>
-    </div>
-    
-    <div class="alert success hide">
-      <div>
-        <i class="fas fa-check-square"></i> Your image is done.
-      </div>
-    </div>
-    
-    <div class="covers">
-      <div id="cover" class="cover">
-        <img id="cover-img" class="image" onerror="imgError(this)" />
-        <svg id="cover-logo" class="logo default white"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          viewbox="0 0 215 215"
-        >
-          <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
-        </svg>
-        <span id="cover-text" class="cover-text top-right white"></span>
-      </div>
-      <div id="topno-cover" class="cover">
-        <div id="topno-cover-bg" style="background:linear-gradient(to bottom, black, white)"></div>
-        <svg id="topno-cover-logo" class="logo default white transparent"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          viewbox="0 0 215 215"
-        >
-          <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
-        </svg>
-        <div id="topno-cover-text-top" class="white"></div>
-        <hr id="topno-cover-bar" />
-        <span id="topno-cover-text-location" class="white"></span>
-      </div>
-      <div id="thisis-cover" class="cover">
-        <div id="thisis-cover-bg-top"></div>
-        <div id="thisis-cover-bg-gradient" style="background:linear-gradient(to bottom right, black, white)"></div>
-        <svg id="thisis-cover-logo" class="logo default black transparent"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          viewbox="0 0 215 215"
-        >
-          <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
-        </svg>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png" id="thisis-cover-img" onerror="blankImgError(this)" />
-        <span id="thisis-cover-text-thisis"></span>
-        <span id="thisis-cover-text-artist"></span>
-      </div>
-    </div>
-    
-    <div class="choices">
-      <img src="https://raw.githubusercontent.com/5qc/cdn/main/img/spotify-cover-generator-white.png" />
-      
-      <!-- Default -->
-      <span class="choice type-choice">Type</span>
-      <select name="type" id="type">
-        <option value="default" selected>Default</option>
-        <option value="top-no">Top #</option>
-        <option value="this-is">This Is</option>
-      </select>
-      
-      <span class="choice text-choice">Text</span>
-      <textarea id="text" rows="1" oninput="auto_grow(this)"></textarea>
-      
-      <span class="choice text-position-choice">Text Position</span>
-      <select name="position" id="position">
-        <option value="top-right" selected>Top right</option>
-        <option value="bottom-left">Bottom left</option>
-        <option value="bottom-right">Bottom right</option>
-        <option value="center">Center</option>
-      </select>
-      
-      <span class="choice text-color-choice">Text Color</span>
-      <select name="textcolor" id="textColor">
-        <option value="black">Black</option>
-        <option value="white" selected>White</option>
-        <option value="green">Green</option>
-        <option value="orange">Orange</option>
-        <option value="red">Red</option>
-        <option value="yellow">Yellow</option>
-      </select>
-      
-      <span class="choice text-size-choice">Text Size</span>
-      <select name="textsize" id="textSize">
-        <option value="extra-small">Extra Small</option>
-        <option value="small">Small</option>
-        <option value="medium" selected>Medium</option>
-        <option value="large">Large</option>
-        <option value="extra-large">Extra Large</option>
-      </select>
-      
-      <span class="choice logo-color-choice">Logo Color</span>
-      <select name="logocolor" id="logoColor">
-        <option value="black">Black</option>
-        <option value="white" selected>White</option>
-        <option value="green">Green</option>
-        <option value="orange">Orange</option>
-        <option value="red">Red</option>
-        <option value="yellow">Yellow</option>
-        <option value="none">None</option>
-      </select>
-      
-      <span class="choice transparent-choice">Logo Transparent?</span>
-      <select name="transparent" id="transparent">
-        <option value="yes">Yes</option>
-        <option value="no" selected>No</option>
-      </select>
-      
-      <span class="choice image-url-choice">Image (URL)</span>
-      <textarea id="image" rows="1" oninput="auto_grow(this)"></textarea>
-      
-      <button id="download" class="download"><i class="fas fa-download"></i></button>
-      
-      <!-- Top # -->
-      <span class="choice top-choice">Top</span>
-      <textarea id="top" rows="1" type="number" oninput="auto_grow(this)" onkeypress="return isNumberKey(event)"></textarea>
-  
-      <span class="choice top-color-choice">Top Color</span>
-      <select name="topcolor" id="topColor">
-        <option value="black">Black</option>
-        <option value="white" selected>White</option>
-      </select>
-      
-      <span class="choice location-choice">Location</span>
-      <textarea id="location" rows="1" oninput="auto_grow(this)"></textarea>
-      
-      <span class="choice location-color-choice">Location Color</span>
-      <select name="locationcolor" id="locationColor">
-        <option value="black">Black</option>
-        <option value="white" selected>White</option>
-      </select>
-      
-      <span class="choice bar-color-choice">Bar Color</span>
-      <select name="barcolor" id="barColor">
-        <option value="black">Black</option>
-        <option value="white" selected>White</option>
-      </select>
-      
-      <span class="choice gradient-choice">Gradient</span>
-      <textarea id="gradient1" rows="1" oninput="auto_grow(this)"></textarea>
-      <textarea id="gradient2" rows="1" oninput="auto_grow(this)"></textarea>
-      
-      <button id="coverno-download" class="download"><i class="fas fa-download"></i></button>
-      
-      <!-- This Is -->
-      <span class="choice artist-choice">Artist</span>
-      <textarea id="thisis-artist" rows="1" oninput="auto_grow(this)"></textarea>
-      
-      <span class="choice thisis-image-choice">Image (URL)</span>
-      <textarea id="thisis-image" rows="1" oninput="auto_grow(this)"></textarea>
-      
-      <span class="choice thisis-gradient-choice">Background Gradient</span>
-      <textarea id="thisis-gradient1" rows="1" oninput="auto_grow(this)"></textarea>
-      <textarea id="thisis-gradient2" rows="1" oninput="auto_grow(this)"></textarea>
-      
-      <button id="thisis-download" class="download"><i class="fas fa-download"></i></button>
-      
-      <div id="previewImage"></div>
-    </div>
-    
-    <div class="credit">
-      <a href="//youtube.com/roc0ast3r"><img src="/spotify/images/youtube.svg" /></a>
-      <a href="//twitter.com/roc0ast3r"><img src="/spotify/images/twitter.svg" /></a>
-      <a href="//instagr.am/roc0ast3r"><img src="/spotify/images/instagram.svg" /></a>
-      <a href="//github.com/5qc/spotify-cover"><img src="/spotify/images/github.svg" /></a>
-    </div>
-    
-    <span class="display-too-small">
-      <div style="font-size:150%;">Your screen is too small.</div>
-      <span style="font-size:75%;">
-        If you are on mobile, switch to a wider device.<br />
-        If you are on a computer, zoom out.<br /><br />
+    <body>
+        <!--<div class="loader">
+            <div class="loader-bg"></div>
+            <div class="loader-thing"></div>
+        </div>-->
         
-        We are working on a mobile-optimized version of this, so<br />
-        just hang tight! :)
-      </span>
-    </span>
-  </body>
+        <div class="alert success hide">
+            <div>
+            <i class="fas fa-check-square"></i> Your image is done.
+            </div>
+        </div>
+        
+        <div class="covers">
+            <div id="cover" class="cover">
+                <img id="cover-img" class="image" onerror="imgError(this)" />
+                <svg id="cover-logo" class="logo default white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    viewbox="0 0 215 215"
+                >
+                    <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
+                </svg>
+                <span id="cover-text" class="cover-text top-right white"></span>
+            </div>
+            <div id="topno-cover" class="cover">
+                <div id="topno-cover-bg" style="background:linear-gradient(to bottom, black, white)"></div>
+                <svg id="topno-cover-logo" class="logo default white transparent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    viewbox="0 0 215 215"
+                >
+                    <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
+                </svg>
+                <div id="topno-cover-text-top" class="white"></div>
+                <hr id="topno-cover-bar" />
+                <span id="topno-cover-text-location" class="white"></span>
+            </div>
+            <div id="thisis-cover" class="cover">
+                <div id="thisis-cover-bg-top"></div>
+                <div id="thisis-cover-bg-gradient" style="background:linear-gradient(to bottom right, black, white)"></div>
+                <svg id="thisis-cover-logo" class="logo default black transparent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    viewbox="0 0 215 215"
+                >
+                    <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
+                </svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png" id="thisis-cover-img" onerror="blankImgError(this)" />
+                <span id="thisis-cover-text-thisis"></span>
+                <span id="thisis-cover-text-artist"></span>
+            </div>
+            <div id="thisis2-cover" style="background: black;" class="cover">
+                <div id="thisis2-cover-bg"></div>
+                <div id="thisis2-cover-text" class="regular">
+                    <span id="thisis2-cover-text-thisis"></span>
+                    <span id="thisis2-cover-text-artist"></span>
+                </div>
+                <svg id="thisis2-cover-logo" class="logo default white transparent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    viewbox="0 0 215 215"
+                >
+                    <path d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
+                </svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png" id="thisis2-cover-img" onerror="blankImgError(this)" />
+            </div>
+        </div>
+        
+        <div class="choices">
+            <img src="https://raw.githubusercontent.com/5qc/cdn/main/img/spotify-cover-generator-white.png" />
+            
+            <!-- Default -->
+            <span class="choice type-choice">Type</span>
+            <select name="type" id="type">
+                <option value="default" selected>Default</option>
+                <option value="top-no">Top #</option>
+                <option value="this-is">This Is</option>
+                <option value="this-is2">This Is #2</option>
+            </select>
+            
+            <span class="choice text-choice">Text</span>
+            <textarea id="text" rows="1" oninput="auto_grow(this)"></textarea>
+            
+            <span class="choice text-position-choice">Text Position</span>
+            <select name="position" id="position">
+                <option value="top-right" selected>Top right</option>
+                <option value="bottom-left">Bottom left</option>
+                <option value="bottom-right">Bottom right</option>
+                <option value="center">Center</option>
+            </select>
+            
+            <span class="choice text-color-choice">Text Color</span>
+            <select name="textcolor" id="textColor">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+                <option value="green">Green</option>
+                <option value="orange">Orange</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+            </select>
+            
+            <span class="choice text-size-choice">Text Size</span>
+            <select name="textsize" id="textSize">
+                <option value="extra-small">Extra Small</option>
+                <option value="small">Small</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+                <option value="extra-large">Extra Large</option>
+            </select>
+            
+            <span class="choice logo-color-choice">Logo Color</span>
+            <select name="logocolor" id="logoColor">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+                <option value="green">Green</option>
+                <option value="orange">Orange</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="none">None</option>
+            </select>
+            
+            <span class="choice transparent-choice">Logo Transparent?</span>
+            <select name="transparent" id="transparent">
+                <option value="yes">Yes</option>
+                <option value="no" selected>No</option>
+            </select>
+            
+            <span class="choice image-url-choice">Image (URL)</span>
+            <textarea id="image" rows="1" oninput="auto_grow(this)"></textarea>
+            
+            <button id="download" class="download"><i class="fas fa-download"></i></button>
+            
+            <!-- Top # -->
+            <span class="choice top-choice">Top</span>
+            <textarea id="top" rows="1" type="number" oninput="auto_grow(this)" onkeypress="isNumberKey(event)"></textarea>
+        
+            <span class="choice top-color-choice">Top Color</span>
+            <select name="topcolor" id="topColor">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+            </select>
+            
+            <span class="choice location-choice">Location</span>
+            <textarea id="location" rows="1" oninput="auto_grow(this)"></textarea>
+            
+            <span class="choice location-color-choice">Location Color</span>
+            <select name="locationcolor" id="locationColor">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+            </select>
+            
+            <span class="choice bar-color-choice">Bar Color</span>
+            <select name="barcolor" id="barColor">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+            </select>
+            
+            <span class="choice gradient-choice">Gradient</span>
+            <textarea id="gradient1" rows="1" oninput="auto_grow(this)"></textarea>
+            <textarea id="gradient2" rows="1" oninput="auto_grow(this)"></textarea>
+            
+            <button id="coverno-download" class="download"><i class="fas fa-download"></i></button>
+            
+            <!-- This Is -->
+            <span class="choice artist-choice">Artist</span>
+            <textarea id="thisis-artist" rows="1" oninput="auto_grow(this)"></textarea>
+            
+            <span class="choice thisis-image-choice">Image (URL)</span>
+            <textarea id="thisis-image" rows="1" oninput="auto_grow(this)"></textarea>
+            
+            <span class="choice thisis-gradient-choice">Background Gradient</span>
+            <textarea id="thisis-gradient1" rows="1" oninput="auto_grow(this)"></textarea>
+            <textarea id="thisis-gradient2" rows="1" oninput="auto_grow(this)"></textarea>
+            
+            <button id="thisis-download" class="download"><i class="fas fa-download"></i></button>
+
+            <!-- This Is #2 -->
+            <span class="choice thisis2-artist-choice">Artist</span>
+            <textarea id="thisis2-artist" rows="1" oninput="auto_grow(this)"></textarea>
+
+            <span class="choice thisis2-artist-color-choice">Artist Color</span>
+            <select name="thisis2-artist-color" id="thisis2-artist-color">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+            </select>
+
+            <span class="choice thisis2-thisis-color-choice">This Is Color</span>
+            <select name="thisis2-thisis-color" id="thisis2-thisis-color">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+            </select>
+
+            <span class="choice thisis2-text-position-choice">Text Position</span>
+            <select name="thisis2-text-position" id="thisis2-text-position">
+                <option value="normal" selected>Normal</option>
+                <option value="centered">Centered</option>
+            </select>
+
+            <span class="choice thisis2-image-choice">Image (URL)</span>
+            <textarea id="thisis2-image" rows="1" oninput="auto_grow(this)"></textarea>
+
+            <span class="choice thisis2-background-choice">Background Color</span>
+            <select name="thisis2-background" id="thisis2-background">
+                <option value="black" selected>Black</option>
+                <option value="white">White</option>
+            </select>
+
+            <span class="choice thisis2-logo-color-choice">Logo Color</span>
+            <select name="thisis2-logo-color" id="thisis2-logo-color">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+            </select>
+
+            <span class="choice thisis2-logo-transparent-choice">Logo Transparent?</span>
+            <select name="thisis2-logo-transparent" id="thisis2-logo-transparent">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button id="thisis2-download" class="download"><i class="fas fa-download"></i></button>
+            
+            <div id="previewImage"></div>
+        </div>
+        
+        <div class="credit">
+            <a href="//youtube.com/roc0ast3r"><img src="/images/youtube.svg" /></a>
+            <a href="//twitter.com/roc0ast3r"><img src="/images/twitter.svg" /></a>
+            <a href="//instagr.am/roc0ast3r"><img src="/images/instagram.svg" /></a>
+            <a href="//github.com/5qc/spotify-cover"><img src="/images/github.svg" /></a>
+        </div>
+        
+        <span class="display-too-small">
+            <div style="font-size:150%;">Your screen is too small.</div>
+            <span style="font-size:75%;">
+            If you are on mobile, switch to a wider device.<br />
+            If you are on a computer, zoom out.<br /><br />
+            
+            We are working on a mobile-optimized version of this, so<br />
+            just hang tight! :)
+            </span>
+        </span>
+    </body>
 </html>
