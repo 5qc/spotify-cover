@@ -1,0 +1,39 @@
+.fade-out {
+	-webkit-animation: fade-out 4s ease-out both;
+	        animation: fade-out 4s ease-out both;
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-out2 {
+  -webkit-animation: fade-out2 1s ease-out both;
+          animation: fade-out2 1s ease-out both;
+}
+@keyframes fade-out2 {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
