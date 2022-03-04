@@ -1,0 +1,114 @@
+@use "scss/alerts";
+@use "scss/colors" as *;
+@use "scss/covers";
+@use "scss/elements";
+@use "scss/fonts" as *;
+@use "scss/loader";
+@use "scss/logo";
+@use "scss/media";
+@use "scss/scrollbar";
+@use "scss/variables" as *;
+
+* {
+    font-family: $font !important;
+
+    &:focus {
+      outline: none;
+    }
+}
+.display-too-small {
+    display: none;
+
+    div {
+      color: salmon;
+      border-bottom: 1px solid #ccc;
+      width: 85%;
+      margin: auto;
+    }
+}
+
+.reset {
+    font-family: sans-serif;
+}
+
+.choices {
+    background: black;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow-y: auto;
+
+    .choice {
+      font-size: 150%;
+      display: block;
+
+      &:first-child {
+        padding-top: 15px;
+      }
+    }
+    img {
+      &:first-of-type {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        height: 125px;
+      }
+    }
+}
+
+.download {
+    --tb: 13px;
+    --lr: 18px;
+    
+    font-size: 300%;
+    padding: var(--tb) var(--lr) var(--tb) var(--lr);
+    border-radius: 10px;
+    color: $color;
+    background: $bgColor;
+    border: 1px solid $bgColor;
+    display: block;
+    margin: auto;
+    
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    transition: 0.25s background;
+
+    &:hover {
+      background: $bgColorHover;
+      transition: 0.25s background;
+    }
+    &:active {
+      background: $bgColorFocus;
+      border: 1px solid $borderColorFocus;
+      transition: 0.25s background;
+    }
+}
+
+.credit {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    background: $bgColor;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 125%;
+    max-width: 125px;
+}
+.credit img {
+    width: 25px;
+    vertical-align: middle;
+}
+
+.download-info {
+    font-size: 125%;
+    padding-top: 10px;
+}
+
+.hide {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
