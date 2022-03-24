@@ -29,6 +29,7 @@
     
     <body>
         <div class="loader">
+            <img src="https://cdn.glitch.global/05cdef95-b8e2-4a1d-a002-d61e22137b69/spotify-cover-generator-white.png?v=1643121956504" class="loader-img" />
             <div class="loader-thing"></div>
         </div>
         
@@ -97,7 +98,6 @@
         <div class="choices">
             <img src="https://raw.githubusercontent.com/5qc/cdn/main/img/spotify-cover-generator-white.png" />
             
-            <!-- Default -->
             <span class="choice type-choice">Type</span>
             <select name="type" id="type">
                 <option value="default" selected>Default</option>
@@ -105,147 +105,204 @@
                 <option value="this-is">This Is</option>
                 <option value="this-is2">This Is #2</option>
             </select>
+
+            <!-- Default -->
+            <div class="item default-item">
+                <span class="choice default-choice">Text</span>
+                <textarea id="text" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
             
-            <span class="choice text-choice">Text</span>
-            <textarea id="text" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item default-item">
+                <span class="choice default-choice">Text Position</span>
+                <select name="position" id="position">
+                    <option value="top-right" selected>Top right</option>
+                    <option value="bottom-left">Bottom left</option>
+                    <option value="bottom-right">Bottom right</option>
+                    <option value="center">Center</option>
+                </select>
+            </div>
             
-            <span class="choice text-position-choice">Text Position</span>
-            <select name="position" id="position">
-                <option value="top-right" selected>Top right</option>
-                <option value="bottom-left">Bottom left</option>
-                <option value="bottom-right">Bottom right</option>
-                <option value="center">Center</option>
-            </select>
+            <div class="item default-item">
+                <span class="choice default-choice">Text Color</span>
+                <select name="textcolor" id="textColor">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                    <option value="green">Green</option>
+                    <option value="orange">Orange</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                </select>
+            </div>
             
-            <span class="choice text-color-choice">Text Color</span>
-            <select name="textcolor" id="textColor">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-                <option value="green">Green</option>
-                <option value="orange">Orange</option>
-                <option value="red">Red</option>
-                <option value="yellow">Yellow</option>
-            </select>
+            <div class="item default-item">
+                <span class="choice default-choice">Text Size</span>
+                <select name="textsize" id="textSize">
+                    <option value="extra-small">Extra Small</option>
+                    <option value="small">Small</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="large">Large</option>
+                    <option value="extra-large">Extra Large</option>
+                </select>
+            </div>
             
-            <span class="choice text-size-choice">Text Size</span>
-            <select name="textsize" id="textSize">
-                <option value="extra-small">Extra Small</option>
-                <option value="small">Small</option>
-                <option value="medium" selected>Medium</option>
-                <option value="large">Large</option>
-                <option value="extra-large">Extra Large</option>
-            </select>
+            <div class="item default-item">
+                <span class="choice default-choice">Logo Color</span>
+                <select name="logocolor" id="logoColor">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                    <option value="green">Green</option>
+                    <option value="orange">Orange</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
             
-            <span class="choice logo-color-choice">Logo Color</span>
-            <select name="logocolor" id="logoColor">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-                <option value="green">Green</option>
-                <option value="orange">Orange</option>
-                <option value="red">Red</option>
-                <option value="yellow">Yellow</option>
-                <option value="none">None</option>
-            </select>
+            <div class="item default-item">
+                <span class="choice default-choice">Logo Transparent?</span>
+                <select name="transparent" id="transparent">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
             
-            <span class="choice transparent-choice">Logo Transparent?</span>
-            <select name="transparent" id="transparent">
-                <option value="yes">Yes</option>
-                <option value="no" selected>No</option>
-            </select>
+            <div class="item default-item">
+                <span class="choice default-choice">Image (URL)</span>
+                <textarea id="image" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
             
-            <span class="choice image-url-choice">Image (URL)</span>
-            <textarea id="image" rows="1" oninput="auto_grow(this)"></textarea>
-            
-            <button id="download" class="download"><i class="fas fa-download"></i></button>
+            <div class="item default-item">
+                <button id="download" class="download"><i class="fas fa-download"></i></button>
+            </div>
             
             <!-- Top # -->
-            <span class="choice top-choice">Top</span>
-            <textarea id="top" rows="1" type="number" oninput="auto_grow(this)" onkeypress="isNumberKey(event)"></textarea>
+            <div class="item top-item">
+                <span class="choice top-choice">Top</span>
+                <textarea id="top" rows="1" type="number" oninput="auto_grow(this)" onkeypress="isNumberKey(event)"></textarea>
+            </div>
         
-            <span class="choice top-color-choice">Top Color</span>
-            <select name="topcolor" id="topColor">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-            </select>
+            <div class="item top-item">
+                <span class="choice top-choice">Top Color</span>
+                <select name="topcolor" id="topColor">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                </select>
+            </div>
             
-            <span class="choice location-choice">Location</span>
-            <textarea id="location" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item top-item">
+                <span class="choice top-choice">Location</span>
+                <textarea id="location" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
             
-            <span class="choice location-color-choice">Location Color</span>
-            <select name="locationcolor" id="locationColor">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-            </select>
+            <div class="item top-item">
+                <span class="choice top-choice">Location Color</span>
+                <select name="locationcolor" id="locationColor">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                </select>
+            </div>
             
-            <span class="choice bar-color-choice">Bar Color</span>
-            <select name="barcolor" id="barColor">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-            </select>
+            <div class="item top-item">
+                <span class="choice top-choice">Bar Color</span>
+                <select name="barcolor" id="barColor">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                </select>
+            </div>
             
-            <span class="choice gradient-choice">Gradient</span>
-            <textarea id="gradient1" rows="1" oninput="auto_grow(this)"></textarea>
-            <textarea id="gradient2" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item top-item">
+                <span class="choice top-choice">Gradient</span>
+                <textarea id="gradient1" rows="1" oninput="auto_grow(this)"></textarea>
+                <textarea id="gradient2" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
             
-            <button id="coverno-download" class="download"><i class="fas fa-download"></i></button>
+            <div class="item top-item">
+                <button id="coverno-download" class="download"><i class="fas fa-download"></i></button>
+            </div>
             
             <!-- This Is -->
-            <span class="choice artist-choice">Artist</span>
-            <textarea id="thisis-artist" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item thisis-item">
+                <span class="choice thisis-choice">Artist</span>
+                <textarea id="thisis-artist" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
             
-            <span class="choice thisis-image-choice">Image (URL)</span>
-            <textarea id="thisis-image" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item thisis-item">
+                <span class="choice thisis-choice">Image (URL)</span>
+                <textarea id="thisis-image" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
             
-            <span class="choice thisis-gradient-choice">Background Gradient</span>
-            <textarea id="thisis-gradient1" rows="1" oninput="auto_grow(this)"></textarea>
-            <textarea id="thisis-gradient2" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item thisis-item">
+                <span class="choice thisis-choice">Background Gradient</span>
+                <textarea id="thisis-gradient1" rows="1" oninput="auto_grow(this)"></textarea>
+                <textarea id="thisis-gradient2" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
             
-            <button id="thisis-download" class="download"><i class="fas fa-download"></i></button>
+            <div class="item thisis-item">
+                <button id="thisis-download" class="download"><i class="fas fa-download"></i></button>
+            </div>
 
             <!-- This Is #2 -->
-            <span class="choice thisis2-artist-choice">Artist</span>
-            <textarea id="thisis2-artist" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">Artist</span>
+                <textarea id="thisis2-artist" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
 
-            <span class="choice thisis2-artist-color-choice">Artist Color</span>
-            <select name="thisis2-artist-color" id="thisis2-artist-color">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-            </select>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">Artist Color</span>
+                <select name="thisis2-artist-color" id="thisis2-artist-color">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                </select>
+            </div>
 
-            <span class="choice thisis2-thisis-color-choice">This Is Color</span>
-            <select name="thisis2-thisis-color" id="thisis2-thisis-color">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-            </select>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">This Is Color</span>
+                <select name="thisis2-thisis-color" id="thisis2-thisis-color">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                </select>
+            </div>
 
-            <span class="choice thisis2-text-position-choice">Text Position</span>
-            <select name="thisis2-text-position" id="thisis2-text-position">
-                <option value="normal" selected>Normal</option>
-                <option value="centered">Centered</option>
-            </select>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">Text Position</span>
+                <select name="thisis2-text-position" id="thisis2-text-position">
+                    <option value="normal" selected>Normal</option>
+                    <option value="centered">Centered</option>
+                </select>
+            </div>
 
-            <span class="choice thisis2-image-choice">Image (URL)</span>
-            <textarea id="thisis2-image" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">Image (URL)</span>
+                <textarea id="thisis2-image" rows="1" oninput="auto_grow(this)"></textarea>
+            </div>
 
-            <span class="choice thisis2-background-choice">Background Color</span>
-            <select name="thisis2-background" id="thisis2-background">
-                <option value="black" selected>Black</option>
-                <option value="white">White</option>
-            </select>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">Background Color</span>
+                <select name="thisis2-background" id="thisis2-background">
+                    <option value="black" selected>Black</option>
+                    <option value="white">White</option>
+                </select>
+            </div>
 
-            <span class="choice thisis2-logo-color-choice">Logo Color</span>
-            <select name="thisis2-logo-color" id="thisis2-logo-color">
-                <option value="black">Black</option>
-                <option value="white" selected>White</option>
-            </select>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">Logo Color</span>
+                <select name="thisis2-logo-color" id="thisis2-logo-color">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                </select>
+            </div>
 
-            <span class="choice thisis2-logo-transparent-choice">Logo Transparent?</span>
-            <select name="thisis2-logo-transparent" id="thisis2-logo-transparent">
-                <option value="yes" selected>Yes</option>
-                <option value="no">No</option>
-            </select>
+            <div class="item thisis2-item">
+                <span class="choice thisis2-choice">Logo Transparent?</span>
+                <select name="thisis2-logo-transparent" id="thisis2-logo-transparent">
+                    <option value="yes" selected>Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
 
-            <button id="thisis2-download" class="download"><i class="fas fa-download"></i></button>
+            <div class="item thisis2-item">
+                <button id="thisis2-download" class="download"><i class="fas fa-download"></i></button>
+            </div>
             
             <div id="previewImage"></div>
         </div>
