@@ -13,17 +13,17 @@
     font-family: $font !important;
 
     &:focus {
-      outline: none;
+        outline: none;
     }
 }
 .display-too-small {
     display: none;
 
     div {
-      color: salmon;
-      border-bottom: 1px solid #ccc;
-      width: 85%;
-      margin: auto;
+        color: salmon;
+        border-bottom: 1px solid #ccc;
+        width: 85%;
+        margin: auto;
     }
 }
 
@@ -41,19 +41,15 @@
     overflow-y: auto;
 
     .choice {
-      font-size: 150%;
-      display: block;
-
-      &:first-child {
-        padding-top: 15px;
-      }
+        font-size: 150%;
+        display: block;
     }
     img {
-      &:first-of-type {
-        margin-top: 15px;
-        margin-bottom: 10px;
-        height: 125px;
-      }
+        &:first-of-type {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            height: 125px;
+        }
     }
 }
 
@@ -76,13 +72,13 @@
     transition: 0.25s background;
 
     &:hover {
-      background: $bgColorHover;
-      transition: 0.25s background;
+        background: $bgColorHover;
+        transition: 0.25s background;
     }
     &:active {
-      background: $bgColorFocus;
-      border: 1px solid $borderColorFocus;
-      transition: 0.25s background;
+        background: $bgColorFocus;
+        border: 1px solid $borderColorFocus;
+        transition: 0.25s background;
     }
 }
 
@@ -95,10 +91,11 @@
     border-radius: 10px;
     font-size: 125%;
     max-width: 125px;
-}
-.credit img {
-    width: 25px;
-    vertical-align: middle;
+
+    img {
+        width: 25px;
+        vertical-align: middle;
+    }
 }
 
 .download-info {
