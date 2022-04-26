@@ -2,6 +2,7 @@
 @use "covers/topno";
 @use "covers/thisis";
 @use "covers/thisis2";
+@use "covers/mix";
 
 @use "variables" as *;
 
@@ -29,9 +30,13 @@
     &:hover {
         cursor: default;
     }
+    img {
+        object-fit: cover;
+    }
 }
 .image {
     height: $coverSize;
+    width: $coverSize;
 }
 .cover-text {
     font-size: 525%;
