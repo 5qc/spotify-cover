@@ -1,0 +1,59 @@
+@use "sass:math" as math;
+@use "../variables" as *;
+
+#thisis-cover-logo {
+    width: 9%;
+    height: 9%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+}
+#thisis-cover-bg-top {
+    background: white;
+    width: 100%;
+    height: 38%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+#thisis-cover-bg-gradient {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+#thisis-cover-text-thisis {
+    color: black;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 25px;
+    position: absolute;
+    top: 12.5%;
+    left: 50%;
+    transform: translate(-50%, -12.5%);
+    z-index: 5;
+}
+#thisis-cover-text-artist {
+    color: black;
+    font-weight: bolder;
+    font-size: 50px;
+    position: absolute;
+    top: 21.5%;
+    left: 50%;
+    transform: translate(-50%, -21.5%);
+    z-index: 5;
+    width: 100%;
+}
+#thisis-cover-img {
+    position: absolute;
+    top: 38%;
+    left: 0;
+    z-index: 3;
+    width: $coverSize;
+    height: 372px;
+}
