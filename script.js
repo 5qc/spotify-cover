@@ -1,5 +1,5 @@
 // Functions
-const imgError = (image) => {
+const imgError = image => {
     image.setAttribute("src", "https://picsum.photos/id/420/1000/1000")
 }
 const blankImgError = image => {
