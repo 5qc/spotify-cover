@@ -1,0 +1,43 @@
+@use "../variables" as *;
+
+#thisis2-cover-text {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    &.regular {
+        padding-top: 75px;
+    }
+    &.centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+#thisis2-cover-text-thisis {
+    font: {
+        size: 125%;
+        weight: 700;
+    }
+}
+#thisis2-cover-text-artist {
+    display: block;
+    letter-spacing: -1px;
+    margin-top: 5px;
+    font: {
+        size: 300%;
+        weight: 700;
+    }
+}
+
+#thisis2-cover-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    width: $coverSize;
+    height: $coverSize;
+}
