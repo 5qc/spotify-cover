@@ -1,0 +1,27 @@
+@use "../variables" as *;
+
+#mix-cover-bar {
+    $barSize: 20px;
+
+    &-bottom {
+        height: $barSize;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    &-left {
+        width: $barSize;
+        height: 65px;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+    }
+}
+#mix-cover-text {
+    position: absolute;
+    bottom: 47.5px;
+    left: 60px;
+    font-size: 55px;
+    text-align: left;
+}
