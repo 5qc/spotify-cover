@@ -1,437 +1,410 @@
+// Functions
+const imgError = (image) => {
+    image.setAttribute("src", "https://picsum.photos/id/420/1000/1000")
+}
+const blankImgError = image => {
+    image.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png")
+}
+const auto_grow = element => {
+    element.style.height = "0px"
+    element.style.height = `${element.scrollHeight - 3.5}px`
+}
+const isNumberKey = (evt) => {
+    const charCode = (evt.which) ? evt.which : evt.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) return false
+    else return true
+}
+
+// Scripts
 window.addEventListener("load", function() {
     const loader = document.querySelector(".loader")
     loader.className += " fade-out2"
 })
 
-// Make all links open in a new window
-$("a").attr("target", "_blank")
+const a = document.querySelectorAll("a")
+for (let i = 0; i < a.length; i++) a[i].setAttribute("target", "_blank")
 
-// Auto-generate placeholder photos
-if (document.getElementById("image").val == undefined) {
-    $("#cover-img").attr("src", "//picsum.photos/id/420/1000/1000")
+if (document.getElementById("image").value === undefined) document.getElementById("cover-img").setAttribute("src", "https://picsum.photos/id/420/1000/1000")
+
+document.getElementById("image").onkeyup = function() {
+    const imageURL = this.value
+    document.getElementById("cover-img").removeAttribute("src")
+    document.getElementById("cover-img").setAttribute("src", imageURL)
 }
 
-$("#image").keyup(function() {
-    var imageURL = $(this).val()
-    $("#cover-img").removeAttr("src").attr("src", imageURL)
-})
-
-function imgError(image) {
-    $("#cover-img").attr("src", "//picsum.photos/id/420/1000/1000")
-    $("#cover").click(function() {
-      var d = new Date()
-      $("#cover-img")
-        .removeAttr("src")
-        .attr("src", "//picsum.photos/id/420/1000/1000")
-    })
-    return true
+// Put text On Image
+document.getElementById("text").onkeyup = function() {
+    const currentText = this.value.replace(/\n/g, "<br />")
+    document.getElementById("cover-text").innerHTML = currentText
 }
-function blankImgError(image) {
-    $(image).attr("src", "//upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png")
-    return true
-}
-
-// Auto-resize textarea
-function auto_grow(element) {
-    element.style.height = "0px"
-    element.style.height = element.scrollHeight - 3.5 + "px"
-}
-
-// Put text on image
-$("#text").keyup(function() {
-    var currentText = $(this).val().replace(/\n/g, "<br />")
-    $("#cover-text").html(currentText)
-})
 
 // Types
-var defaultStuff = "#cover, .default-item"
-var topNoStuff = "#topno-cover, .top-item"
-var thisIsStuff = "#thisis-cover, .thisis-item"
-var thisIs2Stuff = "#thisis2-cover, .thisis2-item"
-$(topNoStuff).addClass("hide")
-$(thisIsStuff).addClass("hide")
-$(thisIs2Stuff).addClass("hide")
+const defaultStuff = document.querySelectorAll("#cover, .default-item")
+const topNoStuff = document.querySelectorAll("#topno-cover, .top-item")
+const thisIsStuff = document.querySelectorAll("#thisis-cover, .thisis-item")
+const thisis2Stuff = document.querySelectorAll("#thisis2-cover, .thisis2-item")
+const mixStuff = document.querySelectorAll("#mix-cover, .mix-item")
+for (let i = 0; i < topNoStuff.length; i++) topNoStuff[i].classList.add("hide")
+for (let i = 0; i < thisIsStuff.length; i++) thisIsStuff[i].classList.add("hide")
+for (let i = 0; i < thisis2Stuff.length; i++) thisis2Stuff[i].classList.add("hide")
+for (let i = 0; i < mixStuff.length; i++) mixStuff[i].classList.add("hide")
 
-$("#type").change(function() {
-    if ($("#type").val() == "default") {
-        $(defaultStuff).removeClass("hide")
-        $(topNoStuff).addClass("hide")
-        $(thisIsStuff).addClass("hide")
-        $(thisIs2Stuff).addClass("hide")
+document.getElementById("type").onchange = function() {
+    if (this.value === "default") {
+        for (let i = 0; i < defaultStuff.length; i++) defaultStuff[i].classList.remove("hide")
+        for (let i = 0; i < topNoStuff.length; i++) topNoStuff[i].classList.add("hide")
+        for (let i = 0; i < thisIsStuff.length; i++) thisIsStuff[i].classList.add("hide")
+        for (let i = 0; i < thisis2Stuff.length; i++) thisis2Stuff[i].classList.add("hide")
+        for (let i = 0; i < mixStuff.length; i++) mixStuff[i].classList.add("hide")
+    } else if (this.value === "top-no") {
+        for (let i = 0; i < defaultStuff.length; i++) defaultStuff[i].classList.add("hide")
+        for (let i = 0; i < topNoStuff.length; i++) topNoStuff[i].classList.remove("hide")
+        for (let i = 0; i < thisIsStuff.length; i++) thisIsStuff[i].classList.add("hide")
+        for (let i = 0; i < thisis2Stuff.length; i++) thisis2Stuff[i].classList.add("hide")
+        for (let i = 0; i < mixStuff.length; i++) mixStuff[i].classList.add("hide")
+    } else if (this.value === "this-is") {
+        for (let i = 0; i < defaultStuff.length; i++) defaultStuff[i].classList.add("hide")
+        for (let i = 0; i < topNoStuff.length; i++) topNoStuff[i].classList.add("hide")
+        for (let i = 0; i < thisIsStuff.length; i++) thisIsStuff[i].classList.remove("hide")
+        for (let i = 0; i < thisis2Stuff.length; i++) thisis2Stuff[i].classList.add("hide")
+        for (let i = 0; i < mixStuff.length; i++) mixStuff[i].classList.add("hide")
+    } else if (this.value === "this-is2") {
+        for (let i = 0; i < defaultStuff.length; i++) defaultStuff[i].classList.add("hide")
+        for (let i = 0; i < topNoStuff.length; i++) topNoStuff[i].classList.add("hide")
+        for (let i = 0; i < thisIsStuff.length; i++) thisIsStuff[i].classList.add("hide")
+        for (let i = 0; i < thisis2Stuff.length; i++) thisis2Stuff[i].classList.remove("hide")
+        for (let i = 0; i < mixStuff.length; i++) mixStuff[i].classList.add("hide")
+    } else if (this.value === "mix") {
+        for (let i = 0; i < defaultStuff.length; i++) defaultStuff[i].classList.add("hide")
+        for (let i = 0; i < topNoStuff.length; i++) topNoStuff[i].classList.add("hide")
+        for (let i = 0; i < thisIsStuff.length; i++) thisIsStuff[i].classList.add("hide")
+        for (let i = 0; i < thisis2Stuff.length; i++) thisis2Stuff[i].classList.add("hide")
+        for (let i = 0; i < mixStuff.length; i++) mixStuff[i].classList.remove("hide")
     }
-    if ($("#type").val() == "top-no") {
-        $(topNoStuff).removeClass("hide")
-        $(defaultStuff).addClass("hide")
-        $(thisIsStuff).addClass("hide")
-        $(thisIs2Stuff).addClass("hide")
-    }
-    if ($("#type").val() == "this-is") {
-        $(thisIsStuff).removeClass("hide")
-        $(defaultStuff).addClass("hide")
-        $(topNoStuff).addClass("hide")
-        $(thisIs2Stuff).addClass("hide")
-    }
-    if ($("#type").val() == "this-is2") {
-        $(thisIs2Stuff).removeClass("hide")
-        $(defaultStuff).addClass("hide")
-        $(topNoStuff).addClass("hide")
-        $(thisIsStuff).addClass("hide")
-    }
-})
+}
 
+/** Covers **/
 // Top # Cover Stuff
-$("#top").keyup(function() {
-    var topText = $(this).val()
-    if ($("#top").val() != "") {
-        $("#topno-cover-text-top").html("Top " + topText)
-    } else {
-        $("#topno-cover-text-top").html("")
-    }
-})
+document.getElementById("top").onkeyup = function() {
+    const topText = this.value
+    if (this.value !== "") document.getElementById("topno-cover-text-top").innerHTML = `Top ${topText}`
+    else document.getElementById("topno-cover-text-top").innerHTML = ""
+}
 
-$("#location").keyup(function() {
-    var locationText = $(this).val()
-    $("#topno-cover-text-location").html(locationText)
-})
+document.getElementById("location").onkeyup = function() {
+    const locationText = this.value
+    document.getElementById("topno-cover-text-location").innerHTML = locationText
+}
 
-$("#gradient1, #gradient2").keyup(function() {
-    var gradient1 = $("#gradient1").val()
-    var gradient2 = $("#gradient2").val()
-    $("#topno-cover-bg").css("background", "linear-gradient(to bottom, " + gradient1 + ", " + gradient2 + ")")
-})
+document.getElementById("gradient1").onkeyup = function() {
+    const gradient1 = document.getELementById("gradient1").value
+    const gradient2 = document.getElementById("gradient2").value
+    document.getElementById("topno-cover-bg").style.background = `linear-gradient(to bottom, ${gradient1}, ${gradient2})`
+}
+document.getElementById("gradient2").onkeyup = function() {
+    const gradient1 = document.getELementById("gradient1").value
+    const gradient2 = document.getElementById("gradient2").value
+    document.getElementById("topno-cover-bg").style.background = `linear-gradient(to bottom, ${gradient1}, ${gradient2})`
+}
 
-var topNoColors = "black, white"
-$("#topColor").change(function() {
-    if ($("#topColor").val() == "black") {
-        $("#topno-cover-text-top")
-        .removeClass(topNoColors)
-        .addClass("black")
+const topNoColors = ["black", "white"]
+document.getElementById("topColor").onchange = function() {
+    const el = document.getElementById("topno-cover-text-top")
+    if (this.value === "black") {
+        el.classList.remove(...topNoColors)
+        el.classList.add("black")
+    } else if (this.value === "white") {
+        el.classList.remove(...topNoColors)
+        el.classList.add("white")
     }
-    if ($("#topColor").val() == "white") {
-        $("#topno-cover-text-top")
-        .removeClass(topNoColors)
-        .addClass("white")
+}
+document.getElementById("locationColor").onchange = function() {
+    const el = document.getElementById("topno-cover-text-location")
+    if (this.value === "black") {
+        el.classList.remove(...topNoColors)
+        el.classList.add("black")
+    } else if (this.value === "white") {
+        el.classList.remove(...topNoColors)
+        el.classList.add("white")
     }
-    })
-    $("#locationColor").change(function() {
-    if ($("#locationColor").val() == "black") {
-        $("#topno-cover-text-location")
-        .removeClass(topNoColors)
-        .addClass("black")
+}
+document.getElementById("barColor").onchange = function() {
+    const el = document.getElementById("topno-cover-bar")
+    if (this.value === "black") {
+        el.classList.remove(...topNoCOlors)
+        el.classList.add("black")
+    } else if (this.value === "white") {
+        el.classList.remove(...topNoColors)
+        el.classList.add("white")
     }
-    if ($("#locationColor").val() == "white") {
-        $("#topno-cover-text-location")
-        .removeClass(topNoColors)
-        .addClass("white")
-    }
-})
-$("#barColor").change(function() {
-    if ($("#barColor").val() == "black") {
-        $("#topno-cover-bar")
-        .removeClass(topNoColors)
-        .addClass("black")
-    }
-    if ($("#barColor").val() == "white") {
-        $("#topno-cover-bar")
-        .removeClass(topNoColors)
-        .addClass("white")
-    }
-})
-
-function isNumberKey(evt){
-    var charCode = (evt.which) ? evt.which : evt.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false
-    return true
 }
 
 // This Is Cover Stuff
-$("#thisis-artist").keyup(function() {
-    var artistText = $(this).val()
-    if (artistText != "") {
-        $("#thisis-cover-text-thisis").html("THIS IS")
-        $("#thisis-cover-text-artist").html(artistText)
+document.getElementById("thisis-thisistext").value = "This Is"
+
+document.getElementById("thisis-artist").onkeyup = function() {
+    const artistText = this.value
+    if (artistText !== "") {
+        document.getElementById("thisis-cover-text-thisis").innerHTML = document.getElementById("thisis-thisistext").value
+        document.getElementById("thisis-cover-text-artist").innerHTML = artistText
     } else {
-        $("#thisis-cover-text-thisis").html("")
-        $("#thisis-cover-text-artist").html("")
+        document.getElementById("thisis-cover-text-thisis").innerHTML = ""
+        document.getElementById("thisis-cover-text-artist").innerHTML = ""
     }
-})
+}
 
-$("#thisis-image").keyup(function() {
-    var imageURL = $(this).val()
-    $("#thisis-cover-img").removeAttr("src").attr("src", imageURL)
-})
+document.getElementById("thisis-thisistext").onkeyup = function() {
+    const thisisText = this.value
+    if (document.getElementById("thisis-artist").value === "") document.getElementById("thisis-cover-text-thisis").innerHTML = thisIsText
+}
 
-$("#thisis-gradient1, #thisis-gradient2").keyup(function() {
-    var gradient1 = $("#thisis-gradient1").val()
-    var gradient2 = $("#thisis-gradient2").val()
-    $("#thisis-cover-bg-gradient").css("background", "linear-gradient(to bottom, " + gradient1 + ", " + gradient2 + ")")
-})
+document.getElementById("thisis-image").onkeyup = function() {
+    const imageURL = this.value
+    document.getElementById("thisis-cover-img").removeAttribute("src").setAttribute("src", imageURL)
+}
+
+document.getElementById("thisis-gradient1").onkeyup = function() {
+    const gradient1 = document.getElementById("thisis-gradient1").value
+    const gradient2 = document.getElementById("thisis-gradient2").value
+    document.getElementById("thisis-cover-bg-gradient").style.background = `linear-gradient(to bottom, ${gradient1}, ${gradient2})`
+}
+document.getElementById("thisis-gradient2").onkeyup = function() {
+    const gradient1 = document.getElementById("thisis-gradient1").value
+    const gradient2 = document.getElementById("thisis-gradient2").value
+    document.getElementById("thisis-cover-bg-gradient").style.background = `linear-gradient(to bottom, ${gradient1}, ${gradient2})`
+}
 
 // This Is #2 Cover Stuff
-$("#thisis2-artist").keyup(function() {
-    var artistText = $(this).val()
+document.getElementById("thisis2-artist").onkeyup = function() {
+    const artistText = this.value
     if (artistText !== "") {
-        $("#thisis2-cover-text-thisis").html("T H I S&nbsp&nbsp&nbspI S :")
-        $("#thisis2-cover-text-artist").html(artistText)
+        document.getElementById("thisis2-cover-text-thisis").innerHTML = "T H I S&nbsp;&nbsp;&nbsp;I S :"
+        document.getElementById("thisis2-cover-text-artist").innerHTML = artistText
     } else {
-        $("#thisis2-cover-text-thisis").html("")
-        $("#thisis2-cover-text-artist").html("")
+        document.getElementById("thisis2-cover-text-thisis").innerHTML = ""
+        document.getElementById("thisis2-cover-text-artist").innerHTML = ""
     }
-})
+}
 
-$("#thisis2-artist-color").change(function() {
-    var thisis2Color = "black white"
+document.getElementById("thisis2-artist-color").onchange = function() {
+    const thisis2Color = "black white", el = document.getElementById("thisis2-cover-text-artist")
     if (this.value === "white") {
-        $("#thisis2-cover-text-artist")
-            .removeClass(thisis2Color)
-            .addClass("white")
+        el.classList.remove(thisis2Color)
+        el.classList.add("white")
     } else if (this.value === "black") {
-        $("#thisis2-cover-text-artist")
-            .removeClass(thisis2Color)
-            .addClass("black")
+        el.classList.remove(thisis2Color)
+        el.classList.add("white")
     }
-})
+}
 
-$("#thisis2-thisis-color").change(function() {
-    var thisis2Color = "black white"
-    if (this.value === "white") {
-        $("#thisis2-cover-text-thisis")
-            .removeClass(thisis2Color)
-            .addClass("white")
-    } else if (this.value === "black") {
-        $("#thisis2-cover-text-thisis")
-            .removeClass(thisis2Color)
-            .addClass("black")
-    }
-})
-
-$("#thisis2-text-position").change(function() {
+document.getElementById("thisis2-text-position").onchange = function() {
+    const el = document.getElementById("thisis2-cover-text")
     if (this.value === "normal") {
-        $("#thisis2-cover-text")
-            .removeClass("regular centered")
-            .addClass("regular")
+        el.classList.remove("regular centered")
+        el.classList.add("regular")
     } else if (this.value === "centered") {
-        $("#thisis2-cover-text")
-            .removeClass("regular centered")
-            .addClass("centered")
+        el.classList.remove("regular centered")
+        el.classList.add("centered")
     }
-})
+}
 
-$("#thisis2-background").change(function() {
+document.getElementById("thisis2-background").onchange = function() {
+    const el = document.getElementById("thisis2-cover")
+    if (this.value === "black") el.style.background = "black"
+    else if (this.value === "white") el.style.background = "white"
+}
+
+document.getElementById("thisis2-logo-color").onchange = function() {
+    const logoColors = "black white", el = document.getElementById("thisis2-cover-logo")
     if (this.value === "black") {
-        $("#thisis2-cover").css("background", "black")
+        el.classList.remove(logoColors)
+        el.classList.add("black")
     } else if (this.value === "white") {
-        $("#thisis2-cover").css("background", "white")
+        el.classList.remove(logoColors)
+        el.classList.add("white")
     }
-})
+}
 
-$("#thisis2-logo-color").change(function() {
-    var logoColors = "black white"
-    if (this.value === "black") {
-        $("#thisis2-cover-logo")
-            .removeClass(logoColors)
-            .addClass("black")
-    } else if (this.value === "white") {
-        $("#thisis2-cover-logo")
-            .removeClass(logoColors)
-            .addClass("white")
-    }
-})
-
-$("#thisis2-logo-transparent").change(function() {
+document.getElementById("thisis2-logo-transparent").onchange = function() {
+    const el = document.getElementById("thisis2-cover-logo")
     if (this.value === "yes") {
-        $("#thisis2-cover-logo")
-            .removeClass("transparent")
-            .addClass("transparent")
+        el.classList.remove("transparent")
+        el.classList.add("transparnet")
     } else if (this.value === "no") {
-        $("#thisis2-cover-logo")
-            .removeClass("transparent")
+        el.classList.remove("transparent")
     }
-})
-$("#thisis2-image").keyup(function() {
-    var imageURL = $(this).val()
-    $("#thisis2-cover-img").removeAttr("src").attr("src", imageURL)
-})
+}
 
-$("#thisis2-background").keyup(function() {
-    $("#thisis2-cover").css("background", this.value)
-})
+document.getElementById("thisis2-image").onkeyup = function() {
+    const imageURL = this.value
+    document.getElementById("thisis2-cover-img").removeAttribute("src")
+    document.getElementById("thisis2-cover-img").setAttribute("src", imageURL)
+}
+
+document.getElementById("thisis2-background").onkeyup = function() {
+    document.getElementById("thisis2-cover").style.background = this.value
+}
+
+// Mix Stuff
+document.getElementById("mix-main-color").onkeyup = function() {
+    document.querySelector("#mix-cover-bar-left").style.background = this.value
+    document.querySelector("#mix-cover-bar-bottom").style.background = this.value
+}
+document.getElementById("mix-text-color").onkeyup = function() {
+    document.getElementById("mix-cover-text").style.color = this.value
+}
+document.getElementById("mix-text").onkeyup = function() {
+    document.getElementById("mix-cover-text").innerHTML = this.value
+}
+document.getElementById("mix-logo-color").onchange = function() {
+    const el = document.getElementById("mix-cover-logo")
+    if (this.value === "black") {
+        el.classList.remove("black white")
+        el.classList.add("black")
+    } else if (this.value === "white") {
+        el.classList.remove("black white")
+        el.classList.add("white")
+    }
+}
+document.getElementById("mix-logo-transparent").onchange = function() {
+    const el = document.getElementById("mix-cover-logo")
+    if (this.value === "yes") {
+        el.classList.remove("transparent")
+        el.classList.add("transparent")
+    } else if (this.value === "no") {
+        el.classList.remove("transparent")
+    }
+}
+document.getElementById("mix-image").onkeyup = function() {
+    document.getElementById("mix-cover-img").setAttribute("src", this.value)
+}
 
 // Change text position
-$("#position").change(function() {
-    if ($("#position").val() == "top-left") {
-        $("#cover-text")
-        .removeClass("top-left top-right bottom-left bottom-right center")
-        .addClass("top-left")
-        $("#cover-logo")
-        .removeClass("default")
-        .addClass("top-left")
+document.getElementById("position").onchange = function() {
+    const text = document.getElementById("cover-text"), logo = document.getElementById("cover-logo")
+    if (this.value === "top-left") {
+        text.classList.remove("top-left", "top-right", "bottom-left", "bottom-right", "center")
+        text.classList.add("top-left")
+        logo.classList.remove("default")
+        logo.classList.add("top-left")
+    } else if (this.value === "top-right") {
+        text.classList.remove("top-left", "top-right", "bottom-left", "bottom-right", "center")
+        text.classList.add("top-right")
+        logo.classList.remove("top-left")
+        logo.classList.add("default")
+    } else if (this.value === "bottom-left") {
+        text.classList.remove("top-left", "top-right", "bottom-left", "bottom-right", "center")
+        text.classList.add("bottom-left")
+        logo.classList.remove("top-left")
+        logo.classList.add("default")
+    } else if (this.value === "bottom-right") {
+        text.classList.remove("top-left", "top-right", "bottom-left", "bottom-right", "center")
+        text.classList.add("bottom-right")
+        logo.classList.remove("top-left")
+        logo.classList.add("default")
+    } else if (this.value === "center") {
+        text.classList.remove("top-left", "top-right", "bottom-left", "bottom-right", "center")
+        text.classList.add("center")
+        logo.classList.remove("top-left")
+        logo.classList.add("default")
     }
-    if ($("#position").val() == "top-right") {
-        $("#cover-text")
-        .removeClass("top-left top-right bottom-left bottom-right center")
-        .addClass("top-right")
-        $("#cover-logo")
-        .removeClass("top-left")
-        .addClass("default")
-    }
-    if ($("#position").val() == "bottom-left") {
-        $("#cover-text")
-        .removeClass("top-left top-right bottom-left bottom-right center")
-        .addClass("bottom-left")
-        $("#cover-logo")
-        .removeClass("top-left")
-        .addClass("default")
-    }
-    if ($("#position").val() == "bottom-right") {
-        $("#cover-text")
-        .removeClass("top-left top-right bottom-left bottom-right center")
-        .addClass("bottom-right")
-        $("#cover-logo")
-        .removeClass("top-left")
-        .addClass("default")
-    }
-    if ($("#position").val() == "center") {
-        $("#cover-text")
-        .removeClass("top-left top-right bottom-left bottom-right center")
-        .addClass("center")
-        $("#cover-logo")
-        .removeClass("top-left")
-        .addClass("default")
-    }
-})
+}
 
 // Change text color
-var colors = "black white green orange red yellow"
-var logoColors = colors + " none"
+const colors = ["black", "white", "green", "orange", "red", "yellow"]
+const logoColors = colors + " none"
 
-$("#textColor").change(function() {
-    if ($("#textColor").val() == "black") {
-        $("#cover-text")
-        .removeClass(colors)
-        .addClass("black")
+document.getElementById("textColor").onchange = function() {
+    const el = document.getElementById("cover-text")
+    if (this.value === "black") {
+        el.classList.remove(...colors)
+        el.classList.add("black")
+    } else if (this.value === "white") {
+        el.classList.remove(...colors)
+        el.classList.add("white")
+    } else if (this.value === "green") {
+        el.classList.remove(...colors)
+        el.classList.add("green")
+    } else if (this.value === "orange") {
+        el.classList.remove(...colors)
+        el.classList.add("orange")
+    } else if (this.value === "red") {
+        el.classList.remove(...colors)
+        el.classList.add("red")
+    } else if (this.value === "yellow") {
+        el.classList.remove(...colors)
+        el.classList.add("yellow")
     }
-    if ($("#textColor").val() == "white") {
-        $("#cover-text")
-        .removeClass(colors)
-        .addClass("white")
+}
+document.getElementById("logoColor").onchange = function() {
+    const el = document.getElementById("cover-logo")
+    if (this.value === "black") {
+        el.classList.remove(...logoColors)
+        el.classList.add("black")
+    } else if (this.value === "white") {
+        el.classList.remove(...logoColors)
+        el.classList.add("white")
+    } else if (this.value === "green") {
+        el.classList.remove(...logoColors)
+        el.classList.add("green")
+    } else if (this.value === "orange") {
+        el.classList.remove(...logoColors)
+        el.classList.add("orange")
+    } else if (this.value === "red") {
+        el.classList.remove(...logoColors)
+        el.classList.add("red")
+    } else if (this.value === "yellow") {
+        el.classList.remove(...logoColors)
+        el.classList.add("yellow")
+    } else if (this.value === "none") {
+        el.classList.remove(...logoColors)
+        el.classList.add("none")
     }
-    if ($("#textColor").val() == "green") {
-        $("#cover-text")
-        .removeClass(colors)
-        .addClass("green")
-    }
-    if ($("#textColor").val() == "orange") {
-        $("#cover-text")
-        .removeClass(colors)
-        .addClass("orange")
-    }
-    if ($("#textColor").val() == "red") {
-        $("#cover-text")
-        .removeClass(colors)
-        .addClass("red")
-    }
-    if ($("#textColor").val() == "yellow") {
-        $("#cover-text")
-        .removeClass(colors)
-        .addClass("yellow")
-    }
-})
+}
 
-// Change Text Sizes
-var sizes = "extra-small small large extra-large"
+// Change text sizes
+const sizes = ["extra-small", "small", "large", "extra-large"]
 
-$("#textSize").change(function() {
-    if ($("#textSize").val() == "extra-small") {
-        $("#cover-text").removeClass(sizes).addClass("extra-small")
+document.getElementById("textSize").onchange = function() {
+    const el = document.getElementById("cover-text")
+    if (this.value === "extra-small") {
+        el.classList.remove(...colors)
+        el.classList.add("extra-small")
+    } else if (this.value === "small") {
+        el.classList.remove(...colors)
+        el.classList.add("small")
+    } else if (this.value === "medium") {
+        el.classList.remove(...colors)
+    } else if (this.value === "large") {
+        el.classList.remove(...colors)
+        el.classList.add("large")
+    } else if (this.value === "extra-large") {
+        el.classList.remove(...colors)
+        el.classList.add("extra-large")
     }
-    if ($("#textSize").val() == "small") {
-        $("#cover-text").removeClass(sizes).addClass("small")
-    }
-    if ($("#textSize").val() == "medium") {
-        $("#cover-text").removeClass(sizes)
-    }
-    if ($("#textSize").val() == "large") {
-        $("#cover-text").removeClass(sizes).addClass("large")
-    }
-    if ($("#textSize").val() == "extra-large") {
-        $("#cover-text").removeClass(sizes).addClass("extra-large")
-    }
-})
-
-// Change logo color
-$("#logoColor").change(function() {
-    if ($("#logoColor").val() == "black") {
-        $("#cover-logo")
-        .removeClass(logoColors)
-        .addClass("black")
-    }
-    if ($("#logoColor").val() == "white") {
-        $("#cover-logo")
-        .removeClass(logoColors)
-        .addClass("white")
-    }
-    if ($("#logoColor").val() == "green") {
-        $("#cover-logo")
-        .removeClass(logoColors)
-        .addClass("green")
-    }
-    if ($("#logoColor").val() == "orange") {
-        $("#cover-logo")
-        .removeClass(logoColors)
-        .addClass("orange")
-    }
-    if ($("#logoColor").val() == "red") {
-        $("#cover-logo")
-        .removeClass(logoColors)
-        .addClass("red")
-    }
-    if ($("#logoColor").val() == "yellow") {
-        $("#cover-logo")
-        .removeClass(logoColors)
-        .addClass("yellow")
-    }
-    if ($("#logoColor").val() == "none") {
-        $("#cover-logo")
-        .removeClass(logoColors)
-        .addClass("none")
-    }
-})
+}
 
 // Change logo transparency
-$("#transparent").change(function() {
-    if ($("#transparent").val() == "yes") {
-        $("#cover-logo")
-        .removeClass("transparent")
-        .addClass("transparent")
+document.getElementById("transparent").onchange = function() {
+    const el = document.getElementById("cover-logo")
+    if (this.value === "yes") {
+        el.classList.remove("transparent")
+        el.classList.add("transparent")
+    } else if (this.value === "no") {
+        el.classList.remove("transparent")
+        el.classList.add("transparent")
     }
-    if ($("#transparent").val() == "no") {
-        $("#cover-logo")
-        .removeClass("transparent")
-    }
-})
-
-// Convert blob image to data
-function blob2canvas(canvas, blob) {
-    var img = new Image()
-    var ctx = canvas.getContext("2d")
-    img.onload = function() {
-        ctx.drawImage(img, 0, 0)
-    }
-    img.src = blob
 }
 
 // Change cover div to image
-var coverName = "cover"
-var coverExt = "jpg"
+const coverName = "cover", coverExt = "jpg"
 
-$("#download").click(function() {
+document.getElementById("download").onclick = function() {
     html2canvas(document.querySelector("#cover"), {
         useCORS: true,
-        onrendered: function(canvas) {
-            var context = canvas.getContext("2d")
-            var img = new Image()
+        onrendered: (canvas) => {
+            const context = canvas.getContext("2d")
+            const img = new Image()
             img.src = document.getElementById("cover-img").src
             img.onload = context.drawImage(img, 0, 0, 600, 600)
         }
@@ -441,25 +414,23 @@ $("#download").click(function() {
         a.setAttribute("download", `${coverName}.${coverExt}`)
         a.click()
     })
-})
-$("#coverno-download").click(function() {
+}
+document.getElementById("coverno-download").onclick = function() {
     html2canvas(document.querySelector("#topno-cover"), {
-        onrendered: function(canvas) {
-            var context = canvas.getContext("2d")
-        }
+        useCORS: true
     }).then(canvas => {
         const a = document.createElement("a")
         a.href = canvas.toDataURL()
         a.setAttribute("download", `${coverName}.${coverExt}`)
         a.click()
     })
-})
-$("#thisis-download").click(function() {
+}
+document.getElementById("thisis-download").onclick = function() {
     html2canvas(document.querySelector("#thisis-cover"), {
         useCORS: true,
-        onrendered: function(canvas) {
-            var context = canvas.getContext("2d")
-            var img = new Image()
+        onrendered: (canvas) => {
+            const context = canvas.getContext("2d")
+            const img = new Image()
             img.src = document.getElementById("thisis-cover-img").src
             img.onload = context.drawImage(img, 0, 0, 600, 600)
         }
@@ -469,13 +440,13 @@ $("#thisis-download").click(function() {
         a.setAttribute("download", `${coverName}.${coverExt}`)
         a.click()
     })
-})
-$("#thisis2-download").click(function() {
+}
+document.getElementById("thisis2-download").onclick = function() {
     html2canvas(document.querySelector("#thisis2-cover"), {
         useCORS: true,
-        onrendered: function(canvas) {
-            var context = canvas.getContext("2d")
-            var img = new Image()
+        onrendered: (canvas) => {
+            const context = canvas.getContext("2d")
+            const img = new Image()
             img.src = document.getElementById("thisis2-cover-img").src
             img.onload = context.drawImage(img, 0, 0, 600, 600)
         }
@@ -485,4 +456,20 @@ $("#thisis2-download").click(function() {
         a.setAttribute("download", `${coverName}.${coverExt}`)
         a.click()
     })
-})
+}
+document.getElementById("mix-download").onclick = function() {
+    html2canvas(document.querySelector("#mix-cover"), {
+        useCORS: true,
+        onrendered: (canvas) => {
+            const context = canvas.getContext("2d")
+            const img = new Image()
+            img.src = document.getElementById("mix-cover-img").src
+            img.onload = context.drawImage(img, 0, 0, 600, 600)
+        }
+    }).then(canvas => {
+        const a = document.createElement("a")
+        a.href = canvas.toDataURL()
+        a.setAttribute("download", `${coverName}.${coverExt}`)
+        a.click()
+    })
+}
